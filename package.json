@@ -43,6 +43,8 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-omnious": "^0.2.3",
     "nodemon": "^1.11.0"
   }
 }
