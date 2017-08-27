@@ -41,5 +41,8 @@
     "swagger-jsdoc": "^1.9.7",
     "useragent": "^2.2.1",
     "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
