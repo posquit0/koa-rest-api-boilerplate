@@ -1,0 +1,14 @@
+coverage
+test
+Dockerfile
+circle.yml
+.*.log
+.circleci
+.coveralls.yml
+.dockerignore
+.editorconfig
+.env
+.eslintrc*
+.npmignore
+.tern*
+.travis.yml
