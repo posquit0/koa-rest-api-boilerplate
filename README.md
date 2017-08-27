@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/posquit0/koa-rest-api-boilerplate" title="Koa REST API Boilerplate">
-    <img alt="Koa REST API Boilerplate" src="" width="240px" />
+    <img alt="Koa REST API Boilerplate" src="https://camo.githubusercontent.com/674563115c4e0d4e5d99440b916952ad795c498e/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f363339363931332f6b6f612f6c6f676f2e706e67" width="240px" />
   </a>
   <br />
   <h1>Koa REST API Boilerplate</h1>
