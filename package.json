@@ -27,6 +27,7 @@
   "main": "app",
   "scripts": {
     "start": "node app",
+    "dev": "NODE_ENV=development nodemon --quiet | bunyan",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
