@@ -13,7 +13,13 @@
     "url": "https://github.com/posquit0/koa-rest-api-boilerplate/issues"
   },
   "keywords": [
-    "koa", "koa2", "rest", "restful", "api", "boilerplate", "skeleton"
+    "koa",
+    "koa2",
+    "rest",
+    "restful",
+    "api",
+    "boilerplate",
+    "skeleton"
   ],
   "engines": {
     "node": ">= 7.0.0"
@@ -22,5 +28,13 @@
   "scripts": {
     "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "dotenv": "^4.0.0",
+    "kcors": "^2.2.1",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.2.1"
   }
 }
