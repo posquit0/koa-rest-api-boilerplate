@@ -1,0 +1,7 @@
+parameters:
+  action:
+    name: action
+    in: query
+    type: string
+    required: true
+    description: 'Action parameter for non-CRUD actions'

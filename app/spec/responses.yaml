@@ -1,0 +1,5 @@
+responses:
+  SampleResonse:
+    description: 'An unexpected error occured'
+    schema:
+      $ref: '#/definitions/Error'
