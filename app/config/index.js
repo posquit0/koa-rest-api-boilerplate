@@ -17,10 +17,10 @@ const configs = {
   production: {
     port: process.env.APP_PORT || 7071,
     logger: {
-      name: 'example-api',
+      name: 'koa-rest-api-boilerplate',
       streams: [{
         type: 'rotating-file',
-        path: path.join(__dirname, '../../.example-api.log'),
+        path: path.join(__dirname, '../../.koa-rest-api-boilerplate.log'),
         period: '1d',
         count: 7,
         level: 'info'
@@ -29,7 +29,7 @@ const configs = {
   },
   development: {
     logger: {
-      name: 'example-api-dev',
+      name: 'koa-rest-api-boilerplate-dev',
       streams: [{
         type: 'stream',
         stream: process.stdout,
@@ -40,7 +40,7 @@ const configs = {
   test: {
     port: 7072,
     logger: {
-      name: 'example-api-test',
+      name: 'koa-rest-api-boilerplate-test',
       streams: []
     }
   }

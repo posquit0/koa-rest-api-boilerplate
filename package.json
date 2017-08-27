@@ -37,6 +37,7 @@
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.1",
+    "pm2": "^2.6.1",
     "swagger-jsdoc": "^1.9.7",
     "useragent": "^2.2.1",
     "uuid": "^3.1.0"
