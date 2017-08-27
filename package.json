@@ -28,7 +28,18 @@
   "scripts": {
     "start": "node app",
     "dev": "NODE_ENV=development nodemon --quiet | bunyan",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest --forceExit",
+    "test:unit": "npm test -- test/unit",
+    "test:integration": "npm test -- test/integration",
+    "test:watch": "npm test -- --watch",
+    "test:watch:unit": "npm run test:unit -- --watch",
+    "test:watch:integration": "npm run test:integration -- --watch",
+    "test:coverage": "npm test -- --coverage",
+    "test:coverage:unit": "npm run test:unit -- --coverage",
+    "test:coverage:integration": "npm run test:integration -- --coverage",
+    "lint": "eslint app test",
+    "lint:app": "eslint app",
+    "lint:test": "eslint test"
   },
   "dependencies": {
     "bunyan": "^1.8.12",
@@ -45,6 +56,8 @@
   "devDependencies": {
     "eslint": "^4.5.0",
     "eslint-config-omnious": "^0.2.3",
-    "nodemon": "^1.11.0"
+    "jest": "^20.0.4",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   }
 }
