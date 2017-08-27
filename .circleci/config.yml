@@ -1,0 +1,74 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      # Primary container
+      - image: circleci/node:8.1.4
+    environment:
+      TZ: Asia/Seoul
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: yarn && yarn add -D jest-junit
+      - save_cache:
+          key: dependencies-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Lint and Test
+          command: |
+            mkdir -p ~/reports
+            yarn lint -- --format junit --output-file ~/reports/eslint.xml
+            JEST_JUNIT_OUTPUT=~/reports/test-results.xml yarn test:coverage -- --coverageDirectory ~/reports --testResultsProcessor ./node_modules/jest-junit
+      - store_test_results:
+          path: ~/reports
+      - store_artifacts:
+          path: ~/reports
+
+  deploy:
+    machine:
+      image: circleci/classic:edge
+    environment:
+      DOCKER_REPOSITORY: koa-rest-api-boilerplate
+    steps:
+      - checkout
+      - run:
+          name: Build Docker Image
+          command: |
+            docker info
+            docker build --rm=false -t $DOCKER_REPOSITORY .
+      - run:
+          name: Deploy to the Production Environment
+          command: echo "Deploy to Production Environment"
+
+  deploy-dev:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Deploy to the Development Environment
+          command: echo "Deploy to Development Environment"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
+      - deploy-dev:
+          requires:
+            - build
+          filters:
+            branches:
+              only: develop
