@@ -24,6 +24,9 @@ jobs:
             mkdir -p ~/reports
             yarn lint -- --format junit --output-file ~/reports/eslint.xml
             JEST_JUNIT_OUTPUT=~/reports/test-results.xml yarn test:coverage -- --coverageDirectory ~/reports --testResultsProcessor ./node_modules/jest-junit
+      - run:
+          name: Send Coverage
+          command: yarn run coveralls < ~/reports/lcov.info
       - store_test_results:
           path: ~/reports
       - store_artifacts:
