@@ -1,0 +1,26 @@
+{
+  "name": "koa-rest-api-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for Koa RESTful API application with Docker, Swagger, Jest, Coveralls, and Circle CI",
+  "homepage": "https://github.com/posquit0/koa-rest-api-boilerplate",
+  "author": "Claud D. Park <posquit0.bj@gmail.com> (http://www.posquit0.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/posquit0/koa-rest-api-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/posquit0/koa-rest-api-boilerplate/issues"
+  },
+  "keywords": [
+    "koa", "koa2", "rest", "restful", "api", "boilerplate", "skeleton"
+  ],
+  "engines": {
+    "node": ">= 7.0.0"
+  },
+  "main": "app",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
