@@ -13,6 +13,19 @@ const options = {
       title: pkginfo.name,
       version: pkginfo.version,
       description: pkginfo.description
+    },
+    consumes: [
+      'application/x-www-form-urlencoded',
+      'application/json'
+    ],
+    produces: ['application/json'],
+    securityDefinitions: {
+      token: {
+        type: 'apiKey',
+        name: 'Authorization',
+        description: 'The credentials to authenticate a user',
+        in: 'header'
+      }
     }
   },
   // Path to the API specs
