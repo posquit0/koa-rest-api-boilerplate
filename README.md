@@ -35,6 +35,8 @@
 
 ---
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/posquit0/koa-rest-api-boilerplate.svg)](https://greenkeeper.io/)
+
 
 ## Getting Started
 
