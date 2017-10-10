@@ -5,17 +5,15 @@ jobs:
     docker:
       # Primary container
       - image: circleci/node:8.1.4
-    environment:
-      TZ: Asia/Seoul
     steps:
       - checkout
       - restore_cache:
-          key: dependencies-{{ checksum "package.json" }}
+          key: dependencies-{{ arch }}-{{ checksum "package.json" }}
       - run:
           name: Install Dependencies
           command: yarn && yarn add -D jest-junit
       - save_cache:
-          key: dependencies-{{ checksum "package.json" }}
+          key: dependencies-{{ arch }}-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
