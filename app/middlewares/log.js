@@ -54,12 +54,12 @@ function log(options = {}) {
     });
 
     const agent = ctx.get('User-Agent');
-    ctx.log.info({ agent, req: ctx, event: 'request' }, 'reqeust start');
+    ctx.log.info({ agent, req: ctx, event: 'request' }, 'request start');
 
     await next();
 
     ctx.responseTime = new Date() - startTime;
-    ctx.log.info({ res: ctx, event: 'response' }, 'reqeust end');
+    ctx.log.info({ res: ctx, event: 'response' }, 'request end');
   };
 }
 
