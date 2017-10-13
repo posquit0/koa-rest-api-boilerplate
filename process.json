@@ -2,7 +2,7 @@
   "apps": [{
     "name": "koa-rest-api-boilerplate",
     "script": "app",
-    "instances": 4,
+    "instances": "max",
     "exec_mode": "cluster",
     "watch": true,
     "env": {
