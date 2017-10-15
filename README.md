@@ -32,6 +32,14 @@
 
 **Koa REST API Boilerplate** is a highly opinionated boilerplate template for building RESTful API application with Koa.
 
+This boilerplate include the following features:
+
+- Multi-process clustering with production-ready process manager [PM2](http://pm2.keymetrics.io/)
+- Log rotation and log management using [Bunyan](https://github.com/trentm/node-bunyan)
+- A super small and optimized [Docker](https://www.docker.com/) image based on Alpine image
+- [Swagger](https://swagger.io/) API documentation based on JSDoc
+- Continuous integration and delivery using [CircleCI](https://circleci.com/)
+- Unit Test and Integration Test along with Test Coverage using [Jest](https://facebook.github.io/jest/) testing framework
 
 ---
 
@@ -105,4 +113,6 @@ If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc
 
 ## License
 
-[MIT](https://github.com/posquit0/koa-rest-api-boilerplate/blob/master/LICENSE) © [Byungjin Park](http://www.posquit0.com)
+Provided under the terms of the [MIT License](https://github.com/posquit0/koa-rest-api-boilerplate/blob/master/LICENSE).
+
+Copyright © 2017, [Byungjin Park](http://www.posquit0.com).
