@@ -28,7 +28,8 @@ app.use(logMiddleware({ logger }));
 app.use(
   cors({
     origin: '*',
-    allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH']
+    allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
+    exposeHeaders: ['X-Request-Id']
   })
 );
 app.use(responseHandler());
