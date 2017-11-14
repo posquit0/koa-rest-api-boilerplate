@@ -4,7 +4,7 @@
 # build:
 #   docker build --force-rm -t posquit0/koa-rest-api-boilerplate .
 # run:
-#   docker run --env-file=path/to/.env --name koa-rest-api-boilerplate -d -p 80:7080 -it posquit0/koa-rest-api-boilerplate
+#   docker run --env-file=path/to/.env --name koa-rest-api-boilerplate -d -p 80:7071 -it posquit0/koa-rest-api-boilerplate
 #
 #
 
