@@ -45,20 +45,20 @@
     "bunyan": "^1.8.12",
     "dotenv": "^4.0.0",
     "kcors": "^2.2.1",
-    "koa": "^2.3.0",
+    "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
-    "koa-router": "^7.2.1",
-    "pm2": "^2.6.1",
+    "koa-router": "^7.3.0",
+    "pm2": "^2.7.2",
     "swagger-jsdoc": "^1.9.7",
     "useragent": "^2.2.1",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "eslint": "^4.5.0",
+    "eslint": "^4.11.0",
     "eslint-config-omnious": "^0.3.1",
     "jest": "^21.2.1",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.12.1",
     "supertest": "^3.0.0"
   }
 }
