@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       # Primary container
-      - image: circleci/node:8.1.4
+      - image: circleci/node:8.9.1
     steps:
       - checkout
       - restore_cache:

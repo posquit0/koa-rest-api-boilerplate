@@ -9,7 +9,7 @@
 #
 
 ### BASE
-FROM node:8.1.4-alpine AS base
+FROM node:8.9.1-alpine AS base
 MAINTAINER posquit0.bj@gmail.com
 # Set the working directory
 WORKDIR /app
