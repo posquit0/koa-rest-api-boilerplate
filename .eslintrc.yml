@@ -1,5 +1,5 @@
 extends:
-  - "omnious"
+  - 'omnious'
 
 parserOptions:
   sourceType: 'script'
