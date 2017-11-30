@@ -34,14 +34,15 @@ function resSerializer(ctx = {}) {
 /**
  * Return middleware that attachs logger to context and
  * logs HTTP request/response.
- * @param {Object} options - Optional configuration
- * @param {String} options.logger - Logger instance of bunyan
- * @return {Function} - Koa middleware
+ *
+ * @param {Object} options={} - Optional configuration.
+ * @param {Object} options.logger - Logger instance of bunyan.
+ * @return {function} Koa middleware.
  */
 function log(options = {}) {
   const { logger = null } = options;
 
-  if (!logger)
+  if (typeof logger !== 'object' || logger === null)
     throw new TypeError('Logger required');
 
   return async (ctx, next) => {
