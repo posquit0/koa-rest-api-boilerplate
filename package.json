@@ -57,7 +57,7 @@
     "coveralls": "^3.0.0",
     "eslint": "^4.12.0",
     "eslint-config-omnious": "^0.3.1",
-    "jest": "^21.2.1",
+    "jest": "^22.0.0",
     "nodemon": "^1.12.1",
     "supertest": "^3.0.0"
   }
