@@ -1,5 +1,6 @@
 'use strict';
 
+const bunyan = require('bunyan');
 const useragent = require('useragent');
 
 
@@ -51,16 +52,31 @@ function log(options = {}) {
     ctx.log.addSerializers({
       req: reqSerializer,
       res: resSerializer,
-      agent: agentSerializer
+      agent: agentSerializer,
+      err: bunyan.stdSerializers.err
     });
 
     const agent = ctx.get('User-Agent');
-    ctx.log.info({ agent, req: ctx, event: 'request' }, 'request start');
+    ctx.log.info(
+      { agent, req: ctx, event: 'request' },
+      `Request start for id: ${ctx.reqId}`
+    );
 
-    await next();
+    try {
+      await next();
+    } catch (err) {
+      ctx.log.error(
+        { err, event: 'error' },
+        `Unhandled exception occured on the request: ${ctx.reqId}`
+      );
+      throw err;
+    }
 
     ctx.responseTime = new Date() - startTime;
-    ctx.log.info({ res: ctx, event: 'response' }, 'request end');
+    ctx.log.info(
+      { res: ctx, event: 'response' },
+      `Request successfully completed for id: ${ctx.reqId}`
+    );
   };
 }
 

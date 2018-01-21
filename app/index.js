@@ -38,10 +38,15 @@ app.use(responseHandler());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
+// Handle uncaught errors
+app.on('error', err => {
+  logger.error({ err, event: 'error' }, 'Unhandled exception occured');
+});
+
 // Start server
 if (!module.parent) {
-  app.listen(config.port, config.ip, () => {
-    console.log(`API server listening on ${config.host}:${config.port}, in ${config.env}`);
+  app.listen(config.port, config.host, () => {
+    logger.info(`API server listening on ${config.host}:${config.port}, in ${config.env}`);
   });
 }
 

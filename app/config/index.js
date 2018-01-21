@@ -11,7 +11,7 @@ const env = process.env.NODE_ENV || 'development';
 const configs = {
   base: {
     env,
-    host: 'localhost',
+    host: process.env.APP_HOST || '0.0.0.0',
     port: 7070
   },
   production: {
@@ -24,6 +24,10 @@ const configs = {
         period: '1d',
         count: 7,
         level: 'info'
+      }, {
+        type: 'stream',
+        stream: process.stderr,
+        level: 'warn'
       }]
     }
   },
