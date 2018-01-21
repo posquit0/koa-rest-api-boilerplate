@@ -9,7 +9,7 @@
 #
 
 ### BASE
-FROM node:8.9.1-alpine AS base
+FROM node:8.9.4-alpine AS base
 MAINTAINER posquit0.bj@gmail.com
 # Set the working directory
 WORKDIR /app
@@ -46,4 +46,4 @@ COPY . .
 # Expose application port
 EXPOSE 7071
 # Run
-CMD ["yarn", "run", "pm2-docker", "--", "--env", "production", "process.json"]
+CMD yarn run pm2-runtime --env production --raw process.json | yarn run bunyan
