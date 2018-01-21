@@ -14,6 +14,7 @@ const statusCodes = {
   FORBIDDEN: 403,
   NOT_FOUND: 404,
   REQUEST_TIMEOUT: 408,
+  UNPROCESSABLE_ENTITY: 422,
   INTERNAL_SERVER_ERROR: 500,
   NOT_IMPLEMENTED: 501,
   BAD_GATEWAY: 502,
@@ -31,18 +32,18 @@ function responseHandler() {
       ctx.body = { status: 'success', data, message };
     };
 
-    ctx.res.fail = (data = null, message = null) => {
+    ctx.res.fail = (code = null, message = null, data = null) => {
       ctx.status = ctx.status >= 400 && ctx.status < 500
         ? ctx.status
         : statusCodes.BAD_REQUEST;
-      ctx.body = { status: 'fail', data, message };
+      ctx.body = { status: 'fail', code, data, message };
     };
 
-    ctx.res.error = (code = null, message = null) => {
+    ctx.res.error = (code = null, message = null, data = null) => {
       ctx.status = ctx.status < 500
         ? statusCodes.INTERNAL_SERVER_ERROR
         : ctx.status;
-      ctx.body = { status: 'error', code, message };
+      ctx.body = { status: 'error', code, data, message };
     };
 
     ctx.res.ok = (data, message) => {
@@ -65,29 +66,34 @@ function responseHandler() {
       ctx.res.success(data, message);
     };
 
-    ctx.res.badRequest = (data, message) => {
+    ctx.res.badRequest = (code, message, data) => {
       ctx.status = statusCodes.BAD_REQUEST;
-      ctx.res.fail(data, message);
+      ctx.res.fail(code, message, data);
     };
 
-    ctx.res.forbidden = (data, message) => {
+    ctx.res.forbidden = (code, message, data) => {
       ctx.status = statusCodes.FORBIDDEN;
-      ctx.res.fail(data, message);
+      ctx.res.fail(code, message, data);
     };
 
-    ctx.res.notFound = (data, message) => {
+    ctx.res.notFound = (code, message, data) => {
       ctx.status = statusCodes.NOT_FOUND;
-      ctx.res.fail(data, message);
+      ctx.res.fail(code, message, data);
     };
 
-    ctx.res.internalServerError = (code, message) => {
+    ctx.res.unprocessableEntity = (code, message, data) => {
+      ctx.status = statusCodes.UNPROCESSABLE_ENTITY;
+      ctx.res.fail(code, message, data);
+    };
+
+    ctx.res.internalServerError = (code, message, data) => {
       ctx.status = statusCodes.INTERNAL_SERVER_ERROR;
-      ctx.res.error(code, message);
+      ctx.res.error(code, message, data);
     };
 
-    ctx.res.notImplemented = (code, message) => {
+    ctx.res.notImplemented = (code, message, data) => {
       ctx.status = statusCodes.NOT_IMPLEMENTED;
-      ctx.res.error(code, message);
+      ctx.res.error(code, message, data);
     };
     await next();
   };
