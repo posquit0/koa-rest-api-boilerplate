@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       # Primary container
-      - image: circleci/node:8.9.1
+      - image: circleci/node:8.9.4
     steps:
       - checkout
       - restore_cache:
@@ -20,8 +20,10 @@ jobs:
           name: Lint and Test
           command: |
             mkdir -p ~/reports
-            yarn lint -- --format junit --output-file ~/reports/eslint.xml
-            JEST_JUNIT_OUTPUT=~/reports/test-results.xml yarn test:coverage -- --coverageDirectory ~/reports --testResultsProcessor ./node_modules/jest-junit
+            yarn lint --format junit --output-file ~/reports/eslint.xml
+            yarn test:coverage --ci --coverageDirectory ~/reports --testResultsProcessor jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: "~/reports/test-results.xml"
       - run:
           name: Send Coverage
           command: yarn run coveralls < ~/reports/lcov.info
