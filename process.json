@@ -4,7 +4,7 @@
     "script": "app",
     "instances": "max",
     "exec_mode": "cluster",
-    "watch": true,
+    "watch": ["app", "node_modules", ".env", "package.json"],
     "env": {
       "NODE_ENV": "development"
     },

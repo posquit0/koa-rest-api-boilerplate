@@ -1,8 +1,8 @@
 'use strict';
 
 const bunyan = require('bunyan');
-const { logger: loggerConfig } = require('./config');
+const config = require('./config/logger');
 
 
-const logger = bunyan.createLogger(loggerConfig);
+const logger = bunyan.createLogger(config);
 module.exports = logger;

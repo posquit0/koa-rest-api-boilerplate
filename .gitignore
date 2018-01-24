@@ -1,6 +1,9 @@
 ### Project ###
 .*.log
 .*.log.[0-9]
+*.log
+*.log.[0-9]
+
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm

@@ -3,6 +3,8 @@ test
 Dockerfile
 circle.yml
 .*.log
+*.log
+*.log.[0-9]
 .circleci
 .coveralls.yml
 .dockerignore
