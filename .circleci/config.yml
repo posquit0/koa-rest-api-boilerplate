@@ -1,19 +1,22 @@
 version: 2
 
 jobs:
-  build:
+  test:
     docker:
       # Primary container
       - image: circleci/node:8.9.4
     steps:
       - checkout
       - restore_cache:
-          key: dependencies-{{ arch }}-{{ checksum "package.json" }}
+          keys:
+            - dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - dependencies-{{ .Branch }}-
+            - dependencies-master-
       - run:
           name: Install Dependencies
-          command: yarn && yarn add -D jest-junit
+          command: yarn
       - save_cache:
-          key: dependencies-{{ arch }}-{{ checksum "package.json" }}
+          key: dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
       - run:
@@ -32,46 +35,96 @@ jobs:
       - store_artifacts:
           path: ~/reports
 
-  deploy:
-    machine:
-      image: circleci/classic:edge
+  build:
+    docker:
+      - image: posquit0/docker-cd
     environment:
-      DOCKER_REPOSITORY: koa-rest-api-boilerplate
+      DOCKER_IMAGE: app
     steps:
       - checkout
+      - setup_remote_docker
+      - restore_cache:
+          keys:
+            - docker-{{ checksum "package.json" }}
+            - docker-
+      - run:
+          name: Load Docker Images
+          command: |
+            if [ -e "/docker-cache/image.tar" ]; then
+              docker load -i /docker-cache/image.tar
+            fi
       - run:
           name: Build Docker Image
           command: |
-            docker info
-            docker build --rm=false -t $DOCKER_REPOSITORY .
+            docker build --cache-from=$DOCKER_IMAGE --rm=false -t $DOCKER_IMAGE .
       - run:
-          name: Deploy to the Production Environment
-          command: echo "Deploy to Production Environment"
+          name: Save Docker Images
+          command: |
+            mkdir -p /docker-cache
+            docker save -o /docker-cache/image.tar $DOCKER_IMAGE
+      - save_cache:
+          key: docker-{{ checksum "package.json" }}-{{ epoch }}
+          paths:
+            - /docker-cache
+      - persist_to_workspace:
+          root: /docker-cache
+          paths:
+            - image.tar
 
-  deploy-dev:
-    machine: true
+  deploy:
+    docker:
+      - image: omniousdev/docker-cd
+    environment:
+      AWS_REGION: ap-northeast-2
+      DOCKER_IMAGE: koa-rest-api-boilerplate
     steps:
-      - checkout
+      - setup_remote_docker
+      - attach_workspace:
+          at: /docker-cache
       - run:
-          name: Deploy to the Development Environment
-          command: echo "Deploy to Development Environment"
+          name: Load Docker Images
+          command: docker load -i /docker-cache/image.tar
+      - run:
+          name: Login into the AWS ECR
+          command: eval "$(aws ecr get-login --region $AWS_REGION --no-include-email)"
+      - deploy:
+          name: Push Docker Image to Docker Registry
+          command: |
+            if [ $CIRCLE_BRANCH == "develop" ]; then
+              TAG="develop"
+              VERSION=$CIRCLE_SHA1
+            elif [ $CIRCLE_TAG ]; then
+              TAG="latest"
+              VERSION=$CIRCLE_TAG
+            fi
+            docker tag app $DOCKER_ECR/$DOCKER_IMAGE:$TAG
+            docker tag app $DOCKER_ECR/$DOCKER_IMAGE:$VERSION
+            docker push $DOCKER_ECR/$DOCKER_IMAGE:$TAG
+            docker push $DOCKER_ECR/$DOCKER_IMAGE:$VERSION
+      - run:
+          name: Logout from the AWS ECR
+          command: |
+            docker logout https://$DOCKER_ECR
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - test:
+          context: org-global
+      - build:
+          context: org-global
           filters:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
-      - deploy-dev:
-          requires:
-            - build
-          filters:
-            branches:
-              only: develop
+              only:
+                - develop
+      # Uncomment when you use this boilerplate for your own project
+      # - deploy:
+      #     context: org-global
+      #     requires:
+      #       - build
+      #     filters:
+      #       tags:
+      #         only: /^v.*/
