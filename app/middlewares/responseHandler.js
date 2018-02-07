@@ -81,6 +81,11 @@ function responseHandler() {
       ctx.res.fail(code, message, data);
     };
 
+    ctx.res.requestTimeout = (code, message, data) => {
+      ctx.status = statusCodes.REQUEST_TIMEOUT;
+      ctx.res.fail(code, message, data);
+    };
+
     ctx.res.unprocessableEntity = (code, message, data) => {
       ctx.status = statusCodes.UNPROCESSABLE_ENTITY;
       ctx.res.fail(code, message, data);

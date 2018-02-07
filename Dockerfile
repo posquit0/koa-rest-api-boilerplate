@@ -4,13 +4,13 @@
 # build:
 #   docker build --force-rm -t posquit0/koa-rest-api-boilerplate .
 # run:
-#   docker run --env-file=path/to/.env --name koa-rest-api-boilerplate -d -p 80:7071 -it posquit0/koa-rest-api-boilerplate
+#   docker run --rm --it --env-file=path/to/.env --name koa-rest-api-boilerplate -p 80:7071 posquit0/koa-rest-api-boilerplate
 #
 #
 
 ### BASE
 FROM node:8.9.4-alpine AS base
-MAINTAINER posquit0.bj@gmail.com
+LABEL maintainer "Byungjin Park <posquit0.bj@gmail.com>"
 # Set the working directory
 WORKDIR /app
 # Copy project specification and dependencies lock files

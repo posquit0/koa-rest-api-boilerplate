@@ -2,10 +2,13 @@
 
 'use strict';
 
+// Load APM on production environment
+const config = require('./config');
+const apm = require('./apm');
+
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const cors = require('kcors');
-const config = require('./config');
 const logMiddleware = require('./middlewares/log');
 const logger = require('./logger');
 const requestId = require('./middlewares/requestId');
@@ -14,6 +17,9 @@ const router = require('./routes');
 
 
 const app = new Koa();
+
+// Trust proxy
+app.proxy = true;
 
 // Set middlewares
 app.use(
@@ -40,13 +46,15 @@ app.use(router.allowedMethods());
 
 // Handle uncaught errors
 app.on('error', err => {
+  if (apm.active)
+    apm.captureError(err);
   logger.error({ err, event: 'error' }, 'Unhandled exception occured');
 });
 
 // Start server
 if (!module.parent) {
   app.listen(config.port, config.host, () => {
-    logger.info(`API server listening on ${config.host}:${config.port}, in ${config.env}`);
+    logger.info({ event: 'execute' }, `API server listening on ${config.host}:${config.port}, in ${config.env}`);
   });
 }
 

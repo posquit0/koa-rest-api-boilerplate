@@ -67,14 +67,6 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history
-
 ### Node ###
 # Logs
 logs
@@ -191,3 +183,10 @@ Session.vim
 *~
 # auto-generated tag files
 tags
+
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
