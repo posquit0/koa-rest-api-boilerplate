@@ -43,24 +43,24 @@
   },
   "dependencies": {
     "bunyan": "^1.8.12",
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.0",
     "elastic-apm-node": "^1.0.0",
     "kcors": "^2.2.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
-    "koa-router": "^7.3.0",
-    "pm2": "^2.9.1",
+    "koa-router": "^7.4.0",
+    "pm2": "^2.9.3",
     "swagger-jsdoc": "^1.9.7",
-    "useragent": "^2.2.1",
+    "useragent": "^2.3.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "eslint": "^4.16.0",
+    "eslint": "^4.17.0",
     "eslint-config-omnious": "^0.3.1",
     "jest": "^22.1.4",
-    "jest-junit": "^3.4.1",
-    "nodemon": "^1.14.11",
+    "jest-junit": "^3.5.0",
+    "nodemon": "^1.14.12",
     "supertest": "^3.0.0"
   }
 }

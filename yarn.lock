@@ -1077,9 +1077,9 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
-dotenv@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
+dotenv@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/dotenv/-/dotenv-5.0.0.tgz#0206eb5b336639bf377618a2a304ff00c6a1fddb"
 
 dtrace-provider@~0.8:
   version "0.8.5"
@@ -1225,9 +1225,9 @@ eslint-visitor-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
 
-eslint@^4.16.0:
-  version "4.16.0"
-  resolved "https://registry.npmjs.org/eslint/-/eslint-4.16.0.tgz#934ada9e98715e1d7bbfd6f6f0519ed2fab35cc1"
+eslint@^4.17.0:
+  version "4.17.0"
+  resolved "https://registry.npmjs.org/eslint/-/eslint-4.17.0.tgz#dc24bb51ede48df629be7031c71d9dc0ee4f3ddf"
   dependencies:
     ajv "^5.3.0"
     babel-code-frame "^6.22.0"
@@ -2511,9 +2511,9 @@ jest-jasmine2@^22.1.4:
     jest-snapshot "^22.1.2"
     source-map-support "^0.5.0"
 
-jest-junit@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.npmjs.org/jest-junit/-/jest-junit-3.4.1.tgz#0f0aea65551290cabdf9a29a1681edb4eba418c5"
+jest-junit@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.npmjs.org/jest-junit/-/jest-junit-3.5.0.tgz#e4552b50266e90f63caef6d981b8dbe1c5dc3326"
   dependencies:
     mkdirp "^0.5.1"
     strip-ansi "^4.0.0"
@@ -2812,9 +2812,9 @@ koa-is-json@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/koa-is-json/-/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"
 
-koa-router@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/koa-router/-/koa-router-7.3.0.tgz#241f0449ac5cd1071831a9a3d80b521fafb6baa1"
+koa-router@^7.4.0:
+  version "7.4.0"
+  resolved "https://registry.npmjs.org/koa-router/-/koa-router-7.4.0.tgz#aee1f7adc02d5cb31d7d67465c9eacc825e8c5e0"
   dependencies:
     debug "^3.1.0"
     http-errors "^1.3.1"
@@ -2964,11 +2964,7 @@ lowercase-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.0.tgz#4e3366b39e7f5457e35f1324bdf6f88d0bfc7306"
 
-lru-cache@2.2.x:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.2.4.tgz#6c658619becf14031d0d0b594b16042ce4dc063d"
-
-lru-cache@^4.0.0, lru-cache@^4.0.1:
+lru-cache@4.1.x, lru-cache@^4.0.0, lru-cache@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
   dependencies:
@@ -3240,9 +3236,9 @@ node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-nodemon@^1.14.11:
-  version "1.14.11"
-  resolved "https://registry.npmjs.org/nodemon/-/nodemon-1.14.11.tgz#cc0009dd8d82f126f3aba50ace7e753827a8cebc"
+nodemon@^1.14.12:
+  version "1.14.12"
+  resolved "https://registry.npmjs.org/nodemon/-/nodemon-1.14.12.tgz#fe059424b15ebdb107696287a558d9cf53a63999"
   dependencies:
     chokidar "^2.0.0"
     debug "^3.1.0"
@@ -3612,9 +3608,9 @@ pm2-multimeter@^0.1.2:
   dependencies:
     charm "~0.1.1"
 
-pm2@^2.9.1:
-  version "2.9.1"
-  resolved "https://registry.npmjs.org/pm2/-/pm2-2.9.1.tgz#1da402931be80f87208bd3fb50bc2cfa7d486335"
+pm2@^2.9.3:
+  version "2.9.3"
+  resolved "https://registry.npmjs.org/pm2/-/pm2-2.9.3.tgz#2b810896db2270f61729ab9756cdeb5898862442"
   dependencies:
     async "^2.5"
     blessed "^0.1.81"
@@ -3635,20 +3631,21 @@ pm2@^2.9.1:
     pm2-axon-rpc "0.5.0"
     pm2-deploy "^0.3.9"
     pm2-multimeter "^0.1.2"
-    pmx "^1.5"
+    pmx "~1.5.*"
     promptly "2.2.0"
     semver "^5.3"
     shelljs "0.7.8"
     source-map-support "^0.5"
     sprintf-js "1.1.1"
+    v8-compile-cache "^1.1.0"
     vizion "^0.2"
     yamljs "^0.3.0"
   optionalDependencies:
     gkt "https://tgz.pm2.io/gkt-1.0.0.tgz"
 
-pmx@^1.5:
-  version "1.5.5"
-  resolved "https://registry.npmjs.org/pmx/-/pmx-1.5.5.tgz#b6e0b8576edcf58d7f406967b44db3da77e357f0"
+pmx@~1.5.*:
+  version "1.5.6"
+  resolved "https://registry.npmjs.org/pmx/-/pmx-1.5.6.tgz#ee877e7b9baa7930efe1e4c0c8ff62e9e22fc40a"
   dependencies:
     debug "^3"
     json-stringify-safe "^5.0"
@@ -4759,11 +4756,11 @@ use@^2.0.0:
     isobject "^3.0.0"
     lazy-cache "^2.0.2"
 
-useragent@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/useragent/-/useragent-2.2.1.tgz#cf593ef4f2d175875e8bb658ea92e18a4fd06d8e"
+useragent@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/useragent/-/useragent-2.3.0.tgz#217f943ad540cb2128658ab23fc960f6a88c9972"
   dependencies:
-    lru-cache "2.2.x"
+    lru-cache "4.1.x"
     tmp "0.0.x"
 
 util-deprecate@~1.0.1:
@@ -4784,6 +4781,10 @@ uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
 uuid@^3.2.1:
   version "3.2.1"
   resolved "https://registry.npmjs.org/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
+
+v8-compile-cache@^1.1.0:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-1.1.2.tgz#8d32e4f16974654657e676e0e467a348e89b0dc4"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
