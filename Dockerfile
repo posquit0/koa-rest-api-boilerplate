@@ -45,5 +45,9 @@ COPY --from=dependencies /tmp/node_modules ./node_modules
 COPY . .
 # Expose application port
 EXPOSE 7071
+# In production environment
+ENV NODE_ENV production
 # Run
-CMD yarn run pm2-runtime --env production --raw process.json | yarn run bunyan
+# TODO: Replace to PM2 after fixing PM2 memory leak bug
+# CMD yarn run pm2-runtime --env production --raw process.json | yarn run bunyan
+CMD yarn start
