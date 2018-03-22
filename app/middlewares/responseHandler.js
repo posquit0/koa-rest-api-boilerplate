@@ -100,6 +100,21 @@ function responseHandler() {
       ctx.status = statusCodes.NOT_IMPLEMENTED;
       ctx.res.error(code, message, data);
     };
+
+    ctx.res.badGateway = (code, message, data) => {
+      ctx.status = statusCodes.BAD_GATEWAY;
+      ctx.res.error(code, message, data);
+    };
+
+    ctx.res.serviceUnavailable = (code, message, data) => {
+      ctx.status = statusCodes.SERVICE_UNAVAILABLE;
+      ctx.res.error(code, message, data);
+    };
+
+    ctx.res.gatewayTimeOut = (code, message, data) => {
+      ctx.status = statusCodes.GATEWAY_TIME_OUT;
+      ctx.res.error(code, message, data);
+    };
     await next();
   };
 }
