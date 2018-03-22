@@ -9,6 +9,7 @@ const apm = require('./apm');
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const cors = require('kcors');
+const errorHandler = require('./middlewares/errorHandler');
 const logMiddleware = require('./middlewares/log');
 const logger = require('./logger');
 const requestId = require('./middlewares/requestId');
@@ -30,7 +31,6 @@ app.use(
   })
 );
 app.use(requestId());
-app.use(logMiddleware({ logger }));
 app.use(
   cors({
     origin: '*',
@@ -39,23 +39,28 @@ app.use(
   })
 );
 app.use(responseHandler());
+app.use(errorHandler());
+app.use(logMiddleware({ logger }));
 
 // Bootstrap application router
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-// Handle uncaught errors
-app.on('error', err => {
+function onError(err) {
   if (apm.active)
     apm.captureError(err);
   logger.error({ err, event: 'error' }, 'Unhandled exception occured');
-});
+}
+
+// Handle uncaught errors
+app.on('error', onError);
 
 // Start server
 if (!module.parent) {
-  app.listen(config.port, config.host, () => {
+  const server = app.listen(config.port, config.host, () => {
     logger.info({ event: 'execute' }, `API server listening on ${config.host}:${config.port}, in ${config.env}`);
   });
+  server.on('error', onError);
 }
 
 // Expose app
