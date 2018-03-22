@@ -55,7 +55,6 @@
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
     "swagger-jsdoc": "^1.9.7",
-    "useragent": "^2.3.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
