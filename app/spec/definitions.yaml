@@ -1,0 +1,80 @@
+definitions:
+  ResponseStatuses: &RESPONSE_STATUSES
+    type: string
+    enum:
+      - success
+      - fail
+      - error
+
+  ResponseFailCodes: &RESPONSE_FAIL_CODES
+    type: string
+    enum:
+      - INVALID_REQUEST
+      - UNKNOWN_ENDPOINT
+      - INVALID_IMAGE_FORMAT
+      - UNSUPPORTED_IMAGE_FORMAT
+      - INVALID_IMAGE_DIMENSIONS
+      - IMAGE_SIZE_LIMIT
+      - UNKNOWN_DOMAIN_NAME
+
+  ResponseErrorCodes: &RESPONSE_ERROR_CODES
+    type: string
+    enum:
+      - INTERNAL_ERROR
+      - UNKNOWN_ERROR
+
+  SuccessResponse:
+    type: object
+    properties:
+      status:
+        $ref: '#/definitions/ResponseStatuses'
+      data:
+        type: object
+      message:
+        type: string
+    required:
+      - status
+      - data
+      - message
+
+  FailResponse:
+    type: object
+    properties:
+      status:
+        $ref: '#/definitions/ResponseStatuses'
+      code:
+        $ref: '#/definitions/ResponseFailCodes'
+      data:
+        type: object
+      message:
+        type: string
+    required:
+      - status
+      - code
+      - message
+    example:
+      status: fail
+      code: INVALID_IMAGE_FORMAT
+      data: null
+      message: 'This file is not a valid image.'
+
+  ErrorResponse:
+    type: object
+    properties:
+      status:
+        $ref: '#/definitions/ResponseStatuses'
+      code:
+        $ref: '#/definitions/ResponseErrorCodes'
+      data:
+        type: object
+      message:
+        type: string
+    required:
+      - status
+      - code
+      - message
+    example:
+      status: error
+      code: UNKNOWN_ERROR
+      data: null
+      message: 'The server encountered an unknown error.'

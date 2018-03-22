@@ -11,8 +11,9 @@ const options = {
   swaggerDefinition: {
     info: {
       title: pkginfo.name,
+      description: pkginfo.description,
       version: pkginfo.version,
-      description: pkginfo.description
+      contact: pkginfo.author
     },
     consumes: [
       'application/x-www-form-urlencoded',
@@ -20,20 +21,20 @@ const options = {
     ],
     produces: ['application/json'],
     securityDefinitions: {
-      token: {
+      'Authorization': {
+        in: 'header',
         type: 'apiKey',
         name: 'Authorization',
-        description: 'The credentials to authenticate a user',
-        in: 'header'
+        description: 'The credentials to authenticate a user'
       }
     }
   },
   // Path to the API specs
   apis: [
     path.join(__dirname, '../controllers/**/*.js'),
+    path.join(__dirname, './definitions.yaml'),
     path.join(__dirname, './parameters.yaml'),
     path.join(__dirname, './responses.yaml'),
-    path.join(__dirname, './models.yaml'),
     path.join(__dirname, './tags.yaml')
   ]
 };

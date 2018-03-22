@@ -8,9 +8,10 @@ const spec = require('../spec');
  * @swagger
  * /:
  *   get:
- *     description: Returns API information
  *     tags:
  *       - Public
+ *     summary: Show API information.
+ *     operationId: showApiInfo
  *     responses:
  *       200:
  *         description: Describe general API information
