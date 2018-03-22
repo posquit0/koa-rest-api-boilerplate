@@ -73,7 +73,7 @@ jobs:
 
   deploy:
     docker:
-      - image: omniousdev/docker-cd
+      - image: posquit0/docker-cd
     environment:
       AWS_REGION: ap-northeast-2
       DOCKER_IMAGE: koa-rest-api-boilerplate
