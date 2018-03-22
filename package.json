@@ -48,10 +48,10 @@
   },
   "dependencies": {
     "bunyan": "^1.8.12",
-    "dotenv": "^5.0.0",
-    "elastic-apm-node": "^1.0.0",
+    "dotenv": "^5.0.1",
+    "elastic-apm-node": "^1.2.1",
     "kcors": "^2.2.1",
-    "koa": "^2.4.1",
+    "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
     "swagger-jsdoc": "^1.9.7",
@@ -59,11 +59,11 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "eslint": "^4.17.0",
-    "eslint-config-omnious": "^0.3.1",
-    "jest": "^22.1.4",
-    "jest-junit": "^3.5.0",
-    "nodemon": "^1.14.12",
+    "eslint": "^4.19.1",
+    "eslint-config-omnious": "^0.4.0",
+    "jest": "^22.4.3",
+    "jest-junit": "^3.6.0",
+    "nodemon": "^1.17.2",
     "supertest": "^3.0.0"
   },
   "jest": {
