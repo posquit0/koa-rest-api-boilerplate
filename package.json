@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "bunyan": "^1.8.12",
-    "dotenv": "^5.0.1",
+    "dotenv": "^6.0.0",
     "elastic-apm-node": "^1.2.1",
     "kcors": "^2.2.1",
     "koa": "^2.5.0",
