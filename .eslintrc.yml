@@ -1,5 +1,5 @@
 extends:
-  - 'omnious'
+  - 'kasa'
 
 parserOptions:
   sourceType: 'script'

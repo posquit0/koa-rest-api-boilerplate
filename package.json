@@ -60,7 +60,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "eslint": "^5.0.1",
-    "eslint-config-omnious": "^0.4.0",
+    "eslint-config-kasa": "^0.0.1",
     "jest": "^23.2.0",
     "jest-junit": "^5.1.0",
     "nodemon": "^1.17.2",
