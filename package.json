@@ -49,7 +49,7 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "dotenv": "^6.0.0",
-    "elastic-apm-node": "^1.2.1",
+    "elastic-apm-node": "^1.8.0",
     "kcors": "^2.2.1",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
@@ -59,9 +59,9 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.1",
     "eslint-config-omnious": "^0.4.0",
-    "jest": "^23.1.0",
+    "jest": "^23.2.0",
     "jest-junit": "^5.1.0",
     "nodemon": "^1.17.2",
     "supertest": "^3.0.0"
