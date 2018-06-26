@@ -4,7 +4,7 @@ jobs:
   test:
     docker:
       # Primary container
-      - image: circleci/node:8.9.4
+      - image: circleci/node:8.11.3
     steps:
       - checkout
       - restore_cache:
@@ -24,7 +24,7 @@ jobs:
           command: |
             mkdir -p ~/reports
             yarn lint --format junit --output-file ~/reports/eslint.xml
-            yarn test:coverage --ci --coverageDirectory ~/reports --testResultsProcessor jest-junit
+            yarn test:coverage --ci --coverageDirectory ~/reports --reporters jest-junit
           environment:
             JEST_JUNIT_OUTPUT: "~/reports/test-results.xml"
       - run:
