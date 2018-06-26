@@ -9,7 +9,7 @@
 #
 
 ### BASE
-FROM node:8.9.4-alpine AS base
+FROM node:8.11.3-alpine AS base
 LABEL maintainer "Byungjin Park <posquit0.bj@gmail.com>"
 # Set the working directory
 WORKDIR /app
@@ -48,6 +48,4 @@ EXPOSE 7071
 # In production environment
 ENV NODE_ENV production
 # Run
-# TODO: Replace to PM2 after fixing PM2 memory leak bug
-# CMD yarn run pm2-runtime --env production --raw process.json | yarn run bunyan
 CMD yarn start
