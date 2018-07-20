@@ -46,4 +46,4 @@ EXPOSE 7071
 # In production environment
 ENV NODE_ENV production
 # Run
-CMD yarn start
+CMD ["node", "app"]
