@@ -19,6 +19,7 @@ function errorHandler() {
         ctx.res.notFound(UNKNOWN_ENDPOINT.code, UNKNOWN_ENDPOINT.message);
     } catch (err) {
       ctx.res.internalServerError(UNKNOWN_ERROR.code, UNKNOWN_ERROR.message);
+
       // Recommended for centralized error reporting,
       // retaining the default behaviour in Koa
       ctx.app.emit('error', err, ctx);

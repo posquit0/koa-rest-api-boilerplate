@@ -46,10 +46,11 @@ app.use(logMiddleware({ logger }));
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-function onError(err) {
+function onError(err, ctx) {
   if (apm.active)
     apm.captureError(err);
-  logger.error({ err, event: 'error' }, 'Unhandled exception occured');
+  if (ctx == null)
+    logger.error({ err, event: 'error' }, 'Unhandled exception occured');
 }
 
 // Handle uncaught errors
