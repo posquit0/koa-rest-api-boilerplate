@@ -8,7 +8,7 @@ const apm = require('./apm');
 
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
-const cors = require('kcors');
+const cors = require('@koa/cors');
 const errorHandler = require('./middlewares/errorHandler');
 const logMiddleware = require('./middlewares/log');
 const logger = require('./logger');

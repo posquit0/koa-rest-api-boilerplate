@@ -47,10 +47,10 @@
     "lint:test": "eslint test"
   },
   "dependencies": {
+    "@koa/cors": "2",
     "bunyan": "^1.8.12",
     "dotenv": "^6.0.0",
     "elastic-apm-node": "^1.8.0",
-    "kcors": "^2.2.1",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
