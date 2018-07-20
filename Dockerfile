@@ -15,8 +15,6 @@ LABEL maintainer "Byungjin Park <posquit0.bj@gmail.com>"
 WORKDIR /app
 # Copy project specification and dependencies lock files
 COPY package.json yarn.lock ./
-# Install yarn
-RUN apk --no-cache add yarn
 
 
 ### DEPENDENCIES

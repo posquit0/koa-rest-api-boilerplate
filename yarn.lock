@@ -1108,9 +1108,9 @@ escodegen@^1.9.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-kasa@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-kasa/-/eslint-config-kasa-0.0.1.tgz#11551ef500f32f65d4272ce809c9d5517008422d"
+eslint-config-kasa@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-kasa/-/eslint-config-kasa-0.1.0.tgz#394bcb31068bc3fadd75ac9f263dff5896c2ab69"
 
 eslint-scope@^4.0.0:
   version "4.0.0"
