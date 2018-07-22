@@ -27,93 +27,135 @@ function responseHandler() {
     ctx.res.statusCodes = statusCodes;
     ctx.statusCodes = ctx.res.statusCodes;
 
-    ctx.res.success = (data = null, message = null) => {
-      ctx.status = ctx.status < 400 ? ctx.status : statusCodes.OK;
-      ctx.body = { status: 'success', data, message };
+    ctx.res.success = ({ statusCode, data = null, message = null }) => {
+      const status = 'success';
+
+      if (!!statusCode && (statusCode < 400))
+        ctx.status = statusCode;
+      else if (!(ctx.status < 400))
+        ctx.status = statusCodes.OK;
+
+      ctx.body = { status, data, message };
     };
 
-    ctx.res.fail = (code = null, message = null, data = null) => {
-      ctx.status = ctx.status >= 400 && ctx.status < 500
-        ? ctx.status
-        : statusCodes.BAD_REQUEST;
-      ctx.body = { status: 'fail', code, data, message };
+    ctx.res.fail = ({ statusCode, code, data = null, message = null }) => {
+      const status = 'fail';
+
+      if (!!statusCode && (statusCode >= 400 && statusCode < 500))
+        ctx.status = statusCode;
+      else if (!(ctx.status >= 400 && ctx.status < 500))
+        ctx.status = statusCodes.BAD_REQUEST;
+
+      ctx.body = { status, code, data, message };
     };
 
-    ctx.res.error = (code = null, message = null, data = null) => {
-      ctx.status = ctx.status < 500
-        ? statusCodes.INTERNAL_SERVER_ERROR
-        : ctx.status;
-      ctx.body = { status: 'error', code, data, message };
+    ctx.res.error = ({ statusCode, code, data = null, message = null }) => {
+      const status = 'error';
+
+      if (!!statusCode && (statusCode >= 500 && statusCode < 600))
+        ctx.status = statusCode;
+      else if (!(ctx.status >= 500 && ctx.status < 600))
+        ctx.status = statusCodes.INTERNAL_SERVER_ERROR;
+
+      ctx.body = { status, code, data, message };
     };
 
-    ctx.res.ok = (data, message) => {
-      ctx.status = statusCodes.OK;
-      ctx.res.success(data, message);
+    ctx.res.ok = (params = {}) => {
+      ctx.res.success({
+        ...params,
+        statusCode: statusCodes.OK
+      });
     };
 
-    ctx.res.created = (data, message) => {
-      ctx.status = statusCodes.CREATED;
-      ctx.res.success(data, message);
+    ctx.res.created = (params = {}) => {
+      ctx.res.success({
+        ...params,
+        statusCode: statusCodes.CREATED
+      });
     };
 
-    ctx.res.accepted = (data, message) => {
-      ctx.status = statusCodes.ACCEPTED;
-      ctx.res.success(data, message);
+    ctx.res.accepted = (params = {}) => {
+      ctx.res.success({
+        ...params,
+        statusCode: statusCodes.ACCEPTED
+      });
     };
 
-    ctx.res.noContent = (data, message) => {
-      ctx.status = statusCodes.NO_CONTENT;
-      ctx.res.success(data, message);
+    ctx.res.noContent = (params = {}) => {
+      ctx.res.success({
+        ...params,
+        statusCode: statusCodes.NO_CONTENT
+      });
     };
 
-    ctx.res.badRequest = (code, message, data) => {
-      ctx.status = statusCodes.BAD_REQUEST;
-      ctx.res.fail(code, message, data);
+    ctx.res.badRequest = (params = {}) => {
+      ctx.res.fail({
+        ...params,
+        statusCode: statusCodes.BAD_REQUEST
+      });
     };
 
-    ctx.res.forbidden = (code, message, data) => {
-      ctx.status = statusCodes.FORBIDDEN;
-      ctx.res.fail(code, message, data);
+    ctx.res.forbidden = (params = {}) => {
+      ctx.res.fail({
+        ...params,
+        statusCode: statusCodes.FORBIDDEN
+      });
     };
 
-    ctx.res.notFound = (code, message, data) => {
-      ctx.status = statusCodes.NOT_FOUND;
-      ctx.res.fail(code, message, data);
+    ctx.res.notFound = (params = {}) => {
+      ctx.res.fail({
+        ...params,
+        statusCode: statusCodes.NOT_FOUND
+      });
     };
 
-    ctx.res.requestTimeout = (code, message, data) => {
-      ctx.status = statusCodes.REQUEST_TIMEOUT;
-      ctx.res.fail(code, message, data);
+    ctx.res.requestTimeout = (params = {}) => {
+      ctx.res.fail({
+        ...params,
+        statusCode: statusCodes.REQUEST_TIMEOUT
+      });
     };
 
-    ctx.res.unprocessableEntity = (code, message, data) => {
-      ctx.status = statusCodes.UNPROCESSABLE_ENTITY;
-      ctx.res.fail(code, message, data);
+    ctx.res.unprocessableEntity = (params = {}) => {
+      ctx.res.fail({
+        ...params,
+        statusCode: statusCodes.UNPROCESSABLE_ENTITY
+      });
     };
 
-    ctx.res.internalServerError = (code, message, data) => {
-      ctx.status = statusCodes.INTERNAL_SERVER_ERROR;
-      ctx.res.error(code, message, data);
+    ctx.res.internalServerError = (params = {}) => {
+      ctx.res.error({
+        ...params,
+        statusCode: statusCodes.INTERNAL_SERVER_ERROR
+      });
     };
 
-    ctx.res.notImplemented = (code, message, data) => {
-      ctx.status = statusCodes.NOT_IMPLEMENTED;
-      ctx.res.error(code, message, data);
+    ctx.res.notImplemented = (params = {}) => {
+      ctx.res.error({
+        ...params,
+        statusCode: statusCodes.NOT_IMPLEMENTED
+      });
     };
 
-    ctx.res.badGateway = (code, message, data) => {
-      ctx.status = statusCodes.BAD_GATEWAY;
-      ctx.res.error(code, message, data);
+    ctx.res.badGateway = (params = {}) => {
+      ctx.res.error({
+        ...params,
+        statusCode: statusCodes.BAD_GATEWAY
+      });
     };
 
-    ctx.res.serviceUnavailable = (code, message, data) => {
-      ctx.status = statusCodes.SERVICE_UNAVAILABLE;
-      ctx.res.error(code, message, data);
+    ctx.res.serviceUnavailable = (params = {}) => {
+      ctx.res.error({
+        ...params,
+        statusCode: statusCodes.SERVICE_UNAVAILABLE
+      });
     };
 
-    ctx.res.gatewayTimeOut = (code, message, data) => {
-      ctx.status = statusCodes.GATEWAY_TIME_OUT;
-      ctx.res.error(code, message, data);
+    ctx.res.gatewayTimeOut = (params = {}) => {
+      ctx.res.error({
+        ...params,
+        statusCode: statusCodes.GATEWAY_TIME_OUT
+      });
     };
     await next();
   };

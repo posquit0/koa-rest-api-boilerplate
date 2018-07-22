@@ -16,9 +16,9 @@ function errorHandler() {
 
       // Respond 404 Not Found for unhandled request
       if (!ctx.body && (!ctx.status || ctx.status === 404))
-        ctx.res.notFound(UNKNOWN_ENDPOINT.code, UNKNOWN_ENDPOINT.message);
+        ctx.res.notFound(UNKNOWN_ENDPOINT);
     } catch (err) {
-      ctx.res.internalServerError(UNKNOWN_ERROR.code, UNKNOWN_ERROR.message);
+      ctx.res.internalServerError(UNKNOWN_ERROR);
 
       // Recommended for centralized error reporting,
       // retaining the default behaviour in Koa

@@ -25,7 +25,10 @@ exports.welcome = ctx => {
     author: pkginfo.author
   };
 
-  ctx.res.ok(data, 'Hello, API!');
+  return ctx.res.ok({
+    data,
+    message: 'Hello, API!'
+  });
 };
 
 exports.showSwaggerSpec = ctx => {
