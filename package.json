@@ -54,7 +54,7 @@
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
-    "swagger-jsdoc": "^1.10.2",
+    "swagger-jsdoc": "^3.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
