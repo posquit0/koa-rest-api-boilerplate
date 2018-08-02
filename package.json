@@ -54,14 +54,14 @@
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
-    "swagger-jsdoc": "^1.10.2",
+    "swagger-jsdoc": "^3.0.2",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "eslint": "^5.1.0",
+    "eslint": "^5.2.0",
     "eslint-config-kasa": "^0.1.0",
-    "jest": "^23.4.1",
+    "jest": "^23.4.2",
     "jest-junit": "^5.1.0",
     "nodemon": "^1.18.3",
     "supertest": "^3.0.0"

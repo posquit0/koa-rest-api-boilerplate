@@ -5,7 +5,7 @@ const homeController = require('./controllers/home');
 
 
 const router = new Router();
-router.get('/', homeController.welcome);
-router.get('/spec', homeController.showSwaggerSpec);
+router.get('/', homeController.getApiInfo);
+router.get('/spec', homeController.getSwaggerSpec);
 
 module.exports = router;

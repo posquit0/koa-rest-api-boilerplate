@@ -14,6 +14,21 @@ responses:
         description: The request id.
         type: string
         format: uuid
+  NotFound:
+    description: NotFound
+    schema:
+      $ref: '#/definitions/FailResponse'
+    examples:
+      application/json:
+        status: fail
+        code: UNKNOWN_RESOURCE
+        data: null
+        message: 'The requested resource does not exist.'
+    headers:
+      X-Request-Id:
+        description: The request id.
+        type: string
+        format: uuid
   UnprocessableEntity:
     description: UnprocessableEntity
     schema:

@@ -10,13 +10,13 @@ const spec = require('../spec');
  *   get:
  *     tags:
  *       - Public
- *     summary: Show API information.
- *     operationId: showApiInfo
+ *     summary: Get API information.
+ *     operationId: getApiInfo
  *     responses:
  *       200:
  *         description: Describe general API information
  */
-exports.welcome = ctx => {
+exports.getApiInfo = ctx => {
   // BUSINESS LOGIC
   const data = {
     name: pkginfo.name,
@@ -31,6 +31,18 @@ exports.welcome = ctx => {
   });
 };
 
-exports.showSwaggerSpec = ctx => {
+/**
+ * @swagger
+ * /spec:
+ *   get:
+ *     tags:
+ *       - Public
+ *     summary: Get Open API specification.
+ *     operationId: getSwaggerSpec
+ *     responses:
+ *       200:
+ *         description: Describe Swagger Open API Specification
+ */
+exports.getSwaggerSpec = ctx => {
   ctx.body = spec;
 };

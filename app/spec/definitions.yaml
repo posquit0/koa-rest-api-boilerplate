@@ -11,11 +11,6 @@ definitions:
     enum:
       - INVALID_REQUEST
       - UNKNOWN_ENDPOINT
-      - INVALID_IMAGE_FORMAT
-      - UNSUPPORTED_IMAGE_FORMAT
-      - INVALID_IMAGE_DIMENSIONS
-      - IMAGE_SIZE_LIMIT
-      - UNKNOWN_DOMAIN_NAME
 
   ResponseErrorCodes: &RESPONSE_ERROR_CODES
     type: string
@@ -54,9 +49,9 @@ definitions:
       - message
     example:
       status: fail
-      code: INVALID_IMAGE_FORMAT
+      code: UNKNOWN_ENDPOINT
       data: null
-      message: 'This file is not a valid image.'
+      message: 'The requested endpoint does not exist.'
 
   ErrorResponse:
     type: object

@@ -15,8 +15,8 @@ const options = {
       version: pkginfo.version,
       contact: pkginfo.author
     },
+    schemes: ['http', 'https'],
     consumes: [
-      'application/x-www-form-urlencoded',
       'application/json'
     ],
     produces: ['application/json'],
