@@ -26,6 +26,8 @@
   <a href="https://github.com/ellerbrock/open-source-badge/">
     <img alt="Open Source Love" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" />
   </a>
+  
+  <a href="https://communityinviter.com/apps/koa-js/koajs" rel="KoaJs Slack Community">![KoaJs Slack](https://img.shields.io/badge/Koa.Js-Slack%20Channel-Slack.svg?longCache=true&style=for-the-badge)</a>
 </div>
 
 <br />
