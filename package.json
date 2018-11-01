@@ -44,7 +44,8 @@
     "test:coverage:integration": "npm run test:integration -- --coverage",
     "lint": "eslint app test",
     "lint:app": "eslint app",
-    "lint:test": "eslint test"
+    "lint:test": "eslint test",
+    "lint:fix": "eslint app --fix"
   },
   "dependencies": {
     "@koa/cors": "2",

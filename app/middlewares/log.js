@@ -17,8 +17,7 @@ function reqSerializer(ctx = {}) {
 
 function resBodySerializer({ status, code, message } = {}) {
   const body = { status, message };
-  if (code)
-    body.code = code;
+  if (code) { body.code = code; }
   return body;
 }
 
@@ -43,8 +42,7 @@ function resSerializer(ctx = {}) {
 function log(options = {}) {
   const { logger = null } = options;
 
-  if (typeof logger !== 'object' || logger === null)
-    throw new TypeError('Logger required');
+  if (typeof logger !== 'object' || logger === null) { throw new TypeError('Logger required'); }
 
   return async (ctx, next) => {
     const startTime = new Date();
