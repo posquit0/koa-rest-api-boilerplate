@@ -3,10 +3,22 @@
 /**
  * Client Failures
  */
+module.exports.AUTH_REQUIRED = {
+  statusCode: 401,
+  code: 'AUTH_REQUIRED',
+  message: 'Authentication is needed to access the requested endpoint.'
+};
+
 module.exports.UNKNOWN_ENDPOINT = {
   statusCode: 404,
   code: 'UNKNOWN_ENDPOINT',
   message: 'The requested endpoint does not exist.'
+};
+
+module.exports.UNKNOWN_RESOURCE = {
+  statusCode: 404,
+  code: 'UNKNOWN_RESOURCE',
+  message: 'The specified resource was not found.'
 };
 
 module.exports.INVALID_REQUEST = {
