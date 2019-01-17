@@ -75,6 +75,7 @@
     "jest-junit": "^6.0.1",
     "nodemon": "^1.18.9",
     "pino-pretty": "^2.5.0",
+    "prettier": "^1.15.3",
     "supertest": "^3.4.1"
   }
 }
