@@ -1,0 +1,81 @@
+components:
+  schemas:
+    ResponseStatus:
+      type: string
+      enum: [success, fail, error]
+    ResponseCodeForFailure:
+      type: string
+      enum:
+      - UNKNOWN_ENDPOINT
+      - INVALID_REQUEST
+    ResponseCodeForError:
+      type: string
+      enum:
+      - UNKNOWN_ERROR
+      - INTERNAL_ERROR
+    SuccessResponse:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ResponseStatus'
+        data:
+          type: object
+          nullable: true
+        message:
+          type: string
+      required:
+      - status
+      - data
+      - message
+    FailureResponse:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ResponseStatus'
+        code:
+          $ref: '#/components/schemas/ResponseCodeForFailure'
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              param:
+                type: string
+              message:
+                type: string
+          nullable: true
+        message:
+          type: string
+      required:
+      - status
+      - code
+      - data
+      - message
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ResponseStatus'
+        code:
+          $ref: '#/components/schemas/ResponseCodeForFailure'
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              param:
+                type: string
+              message:
+                type: string
+          nullable: true
+        message:
+          type: string
+      required:
+      - status
+      - code
+      - data
+      - message
+    Password:
+      type: string
+      format: password
+      pattern: '^(?=.*[A-Z])(?=.*[ \][!"#$%&''()*+,./:;<=>?@^_`{|}~-])(?=.*[0-9])(?=.*[a-z]).{8,128}$'

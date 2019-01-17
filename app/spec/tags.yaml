@@ -1,3 +1,8 @@
 tags:
-  - name: Public
-    description: Public APIs
+- name: misc
+  x-displayName: MISC
+  description: Miscellaneous Operations
+- name: public
+  x-displayName: Public APIs
+  x-traitTag: true
+  description: Oprations for anonymous

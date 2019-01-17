@@ -1,0 +1,13 @@
+components:
+  # INFO: OAS does not permit to define common response headers
+  # for different response codes or different API operations
+  headers:
+    X-Request-ID:
+      schema:
+        type: string
+        format: uuid
+      description: Unique identifier for every HTTP request involved in operation processing.
+    X-RateLimit-Limit:
+      schema:
+        type: integer
+      description: Request limit.

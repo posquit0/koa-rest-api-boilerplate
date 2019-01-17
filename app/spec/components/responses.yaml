@@ -1,0 +1,56 @@
+components:
+  responses:
+    NoContent:
+      x-summary: No Content
+      description: No Content
+    Unauthorized:
+      x-summary: Unauthorized
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FailureResponse'
+          examples:
+            UNAUTHORIZED:
+              value:
+                status: 'fail'
+                code: 'UNAUTHORIZED'
+                data: null
+                message: 'Login Required.'
+    UnknownResource:
+      x-summary: Not Found
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FailureResponse'
+          examples:
+            UNKNOWN_RESOURCE:
+              value:
+                status: 'fail'
+                code: 'UNKNOWN_RESOURCE'
+                data: null
+                message: 'The specified resource was not found.'
+    InternalServerError:
+      x-summary: Internal Server Error
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            UNKNOWN_ERROR:
+              value:
+                status: 'error'
+                code: 'UNKNOWN_ERROR'
+                data: null
+                message: 'The server encountered an unknown error.'
+            INTERNAL_ERROR:
+              value:
+                status: 'error'
+                code: 'INTERNAL_ERROR'
+                data: null
+                message: 'The server encountered an internal error.'
+    NotImplemented:
+      x-summary: Not Implemented
+      description: Not Implemented
