@@ -20,9 +20,20 @@ coverage
 # Optional NPM cache directory
 .npm
 
+# Package ignore file
+.npmignore
+
 
 ### Project ###
 # Metafiles
+.env.example
 .editorocnfig
+.dockerignore
+
+
+### CI / CD ###
+# CircleCI
 circle*
 .circle*
+# Jenkins
+Jenkinsfile
