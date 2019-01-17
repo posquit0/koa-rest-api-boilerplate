@@ -8,6 +8,13 @@
     "email": "posquit0.bj@gmail.com",
     "url": "https://www.posquit0.com"
   },
+  "contributors": [
+    {
+      "name": "Byungjin Park",
+      "email": "posquit0.bj@gmail.com",
+      "url": "https://www.posquit0.com"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,13 +34,13 @@
     "skeleton"
   ],
   "engines": {
-    "node": ">= 7.0.0"
+    "node": ">= 8.0.0"
   },
   "main": "app",
   "scripts": {
     "start": "node app",
     "dev": "NODE_ENV=development nodemon --quiet | bunyan",
-    "test": "NODE_ENV=test jest --forceExit --verbose",
+    "test": "NODE_ENV=test jest --verbose --passWithNoTests --forceExit",
     "test:unit": "npm test -- test/unit",
     "test:integration": "npm test -- test/integration",
     "test:watch": "npm test -- --watch",
@@ -61,12 +68,10 @@
     "coveralls": "^3.0.2",
     "eslint": "^5.2.0",
     "eslint-config-kasa": "^0.1.0",
-    "jest": "^23.4.2",
-    "jest-junit": "^5.1.0",
+    "jest": "^23.6.0",
+    "jest-extended": "^0.11.0",
+    "jest-junit": "^6.0.1",
     "nodemon": "^1.18.3",
     "supertest": "^3.0.0"
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }
