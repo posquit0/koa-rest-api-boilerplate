@@ -1,6 +1,6 @@
 {
   "name": "koa-rest-api-boilerplate",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Boilerplate for Koa RESTful API application with Docker, Swagger, Jest, Coveralls, and Circle CI",
   "homepage": "https://github.com/posquit0/koa-rest-api-boilerplate",
   "author": {
