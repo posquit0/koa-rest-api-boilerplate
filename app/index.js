@@ -47,10 +47,12 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 function onError(err, ctx) {
-  if (apm.active)
+  if (apm.active) {
     apm.captureError(err);
-  if (ctx == null)
+  }
+  if (ctx == null) {
     logger.error({ err, event: 'error' }, 'Unhandled exception occured');
+  }
 }
 
 // Handle uncaught errors

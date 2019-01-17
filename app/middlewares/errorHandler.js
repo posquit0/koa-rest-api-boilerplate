@@ -15,8 +15,9 @@ function errorHandler() {
       await next();
 
       // Respond 404 Not Found for unhandled request
-      if (!ctx.body && (!ctx.status || ctx.status === 404))
+      if (!ctx.body && (!ctx.status || ctx.status === 404)) {
         ctx.res.notFound(UNKNOWN_ENDPOINT);
+      }
     } catch (err) {
       ctx.res.internalServerError(UNKNOWN_ERROR);
 

@@ -30,10 +30,11 @@ function responseHandler() {
     ctx.res.success = ({ statusCode, data = null, message = null }) => {
       const status = 'success';
 
-      if (!!statusCode && (statusCode < 400))
+      if (!!statusCode && (statusCode < 400)) {
         ctx.status = statusCode;
-      else if (!(ctx.status < 400))
+      } else if (!(ctx.status < 400)) {
         ctx.status = statusCodes.OK;
+      }
 
       ctx.body = { status, data, message };
     };
@@ -41,10 +42,11 @@ function responseHandler() {
     ctx.res.fail = ({ statusCode, code, data = null, message = null }) => {
       const status = 'fail';
 
-      if (!!statusCode && (statusCode >= 400 && statusCode < 500))
+      if (!!statusCode && (statusCode >= 400 && statusCode < 500)) {
         ctx.status = statusCode;
-      else if (!(ctx.status >= 400 && ctx.status < 500))
+      } else if (!(ctx.status >= 400 && ctx.status < 500)) {
         ctx.status = statusCodes.BAD_REQUEST;
+      }
 
       ctx.body = { status, code, data, message };
     };
@@ -52,10 +54,11 @@ function responseHandler() {
     ctx.res.error = ({ statusCode, code, data = null, message = null }) => {
       const status = 'error';
 
-      if (!!statusCode && (statusCode >= 500 && statusCode < 600))
+      if (!!statusCode && (statusCode >= 500 && statusCode < 600)) {
         ctx.status = statusCode;
-      else if (!(ctx.status >= 500 && ctx.status < 600))
+      } else if (!(ctx.status >= 500 && ctx.status < 600)) {
         ctx.status = statusCodes.INTERNAL_SERVER_ERROR;
+      }
 
       ctx.body = { status, code, data, message };
     };

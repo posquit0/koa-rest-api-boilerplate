@@ -54,24 +54,24 @@
     "lint:test": "eslint test"
   },
   "dependencies": {
-    "@koa/cors": "2",
+    "@koa/cors": "^2.2.3",
     "bunyan": "^1.8.12",
-    "dotenv": "^6.0.0",
+    "dotenv": "^6.2.0",
     "elastic-apm-node": "^1.8.3",
-    "koa": "^2.5.2",
+    "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
-    "swagger-jsdoc": "^3.0.2",
+    "swagger-jsdoc": "^3.2.6",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "eslint": "^5.2.0",
-    "eslint-config-kasa": "^0.1.0",
+    "eslint": "^5.12.0",
+    "eslint-config-kasa": "^0.2.0",
     "jest": "^23.6.0",
     "jest-extended": "^0.11.0",
     "jest-junit": "^6.0.1",
-    "nodemon": "^1.18.3",
-    "supertest": "^3.0.0"
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.1"
   }
 }
