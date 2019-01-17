@@ -98,6 +98,13 @@ function responseHandler() {
       });
     };
 
+    ctx.res.unauthorized = (params = {}) => {
+      ctx.res.fail({
+        ...params,
+        statusCode: statusCodes.UNAUTHORIZED
+      });
+    };
+
     ctx.res.forbidden = (params = {}) => {
       ctx.res.fail({
         ...params,
