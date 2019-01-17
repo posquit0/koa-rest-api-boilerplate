@@ -5,65 +5,50 @@
 // Load APM on production environment
 const config = require('./config');
 const apm = require('./apm');
-
-const Koa = require('koa');
-const bodyParser = require('koa-bodyparser');
-const cors = require('@koa/cors');
-const errorHandler = require('./middlewares/errorHandler');
-const logMiddleware = require('./middlewares/log');
+const App = require('./app');
 const logger = require('./logger');
-const requestId = require('./middlewares/requestId');
-const responseHandler = require('./middlewares/responseHandler');
-const router = require('./routes');
 
 
-const app = new Koa();
+const app = new App();
 
-// Trust proxy
-app.proxy = true;
-
-// Set middlewares
-app.use(
-  bodyParser({
-    enableTypes: ['json', 'form'],
-    formLimit: '10mb',
-    jsonLimit: '10mb'
-  })
-);
-app.use(requestId());
-app.use(
-  cors({
-    origin: '*',
-    allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
-    exposeHeaders: ['X-Request-Id']
-  })
-);
-app.use(responseHandler());
-app.use(errorHandler());
-app.use(logMiddleware({ logger }));
-
-// Bootstrap application router
-app.use(router.routes());
-app.use(router.allowedMethods());
-
-function onError(err, ctx) {
+function handleError(err, ctx) {
   if (apm.active) {
     apm.captureError(err);
   }
+
   if (ctx == null) {
     logger.error({ err, event: 'error' }, 'Unhandled exception occured');
   }
 }
 
+async function terminate(signal) {
+  try{
+    await app.terminate();
+  } finally {
+    logger.info({ signal, event: 'terminate' }, 'App is terminated');
+    process.kill(process.pid, signal);
+  }
+}
+
 // Handle uncaught errors
-app.on('error', onError);
+app.on('error', handleError);
 
 // Start server
 if (!module.parent) {
   const server = app.listen(config.port, config.host, () => {
     logger.info({ event: 'execute' }, `API server listening on ${config.host}:${config.port}, in ${config.env}`);
   });
-  server.on('error', onError);
+  server.on('error', handleError);
+
+  const errors = ['unhandledRejection', 'uncaughtException'];
+  errors.map(error => {
+    process.on(error, handleError);
+  });
+
+  const signals = ['SIGTERM', 'SIGINT', 'SIGUSR2'];
+  signals.map(signal => {
+    process.once(signal, () => terminate(signal));
+  });
 }
 
 // Expose app

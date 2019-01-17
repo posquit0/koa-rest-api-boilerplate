@@ -32,6 +32,14 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@kasa/koa-request-id@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@kasa/koa-request-id/-/koa-request-id-1.0.0.tgz#0363151380d26059a08f51fa0e27650026e9dda3"
+  integrity sha512-TDc0aBBf37CDE8SvWZiKf95Iqcv1CVPiv0k1SGqmpm0gobImVnClxG7vQDwKlOyBEs4PjVZR/V3ArlyBcq9kJQ==
+  dependencies:
+    debug "^4.1.0"
+    uuid "^3.3.2"
+
 "@koa/cors@^2.2.3":
   version "2.2.3"
   resolved "https://registry.npmjs.org/@koa/cors/-/cors-2.2.3.tgz#c32a9907acbee1e72fedfb0b9ac840d2e6f9be57"
@@ -907,7 +915,7 @@ debug@^3.1.0, debug@~3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@^4.0.1:
+debug@^4.0.1, debug@^4.1.0:
   version "4.1.1"
   resolved "https://registry.npmjs.org/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
   integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
