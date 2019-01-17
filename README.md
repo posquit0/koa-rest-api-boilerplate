@@ -34,8 +34,8 @@
 
 This boilerplate include the following features:
 
-- Log rotation and log management using [Bunyan](https://github.com/trentm/node-bunyan)
-- A super small and optimized [Docker](https://www.docker.com/) image based on Alpine image
+- Logging to STDOUT/STDERR stream using [Pino](http://getpino.io/)
+- A super small and optimized [Docker](https://www.docker.com/) image based on [Node.js Alpine image](https://hub.docker.com/_/node/)
 - [Swagger](https://swagger.io/) API documentation based on JSDoc
 - Continuous integration and delivery using [CircleCI](https://circleci.com/)
 - Unit Test and Integration Test along with Test Coverage using [Jest](https://facebook.github.io/jest/) testing framework
