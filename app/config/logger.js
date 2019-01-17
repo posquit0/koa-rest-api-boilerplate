@@ -1,37 +1,20 @@
 'use strict';
 
-const path = require('path');
 const { env, name } = require('./');
 
 
-const directory = process.env.LOG_DIRECTORY || path.join(__dirname, '../../');
-const filename = process.env.LOG_FILENAME || `${name}.${env}.json.log`;
-
 const config = {
+  // Enable logging only in production and development env as default.
+  enabled: process.env.LOG_ENABLED || (
+    ['production', 'development'].includes(env)
+  ),
+  // The name of the logger. When set adds a name field to every log.
   name,
-  streams: []
+  level: process.env.LOG_LEVEL || (
+    env === 'production' ? 'info' : 'debug'
+  ),
+  // Supply paths to keys to redact sensitive information
+  redact: []
 };
-
-// Add streams as depending on the environment
-if (env === 'production') {
-  config.streams.push({
-    type: 'rotating-file',
-    path: path.join(directory, filename),
-    period: '1d',
-    count: 7,
-    level: process.env.LOG_LEVEL || 'info'
-  });
-  config.streams.push({
-    type: 'stream',
-    stream: process.stderr,
-    level: 'warn'
-  });
-} else if (env === 'development') {
-  config.streams.push({
-    type: 'stream',
-    stream: process.stdout,
-    level: 'debug'
-  });
-}
 
 module.exports = config;

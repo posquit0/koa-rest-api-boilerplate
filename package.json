@@ -39,7 +39,7 @@
   "main": "app",
   "scripts": {
     "start": "node app",
-    "dev": "NODE_ENV=development nodemon --quiet | bunyan",
+    "dev": "NODE_ENV=development nodemon --quiet | pino-pretty -c -l -t",
     "test": "NODE_ENV=test jest --verbose --passWithNoTests --forceExit",
     "test:unit": "npm test -- test/unit",
     "test:integration": "npm test -- test/integration",
@@ -54,14 +54,15 @@
     "lint:test": "eslint test"
   },
   "dependencies": {
+    "@kasa/koa-logging": "^0.2.0",
     "@kasa/koa-request-id": "^1.0.0",
     "@koa/cors": "^2.2.3",
-    "bunyan": "^1.8.12",
     "dotenv": "^6.2.0",
     "elastic-apm-node": "^1.8.3",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
+    "pino": "^5.10.7",
     "swagger-jsdoc": "^3.2.6",
     "uuid": "^3.3.2"
   },
@@ -73,6 +74,7 @@
     "jest-extended": "^0.11.0",
     "jest-junit": "^6.0.1",
     "nodemon": "^1.18.9",
+    "pino-pretty": "^2.5.0",
     "supertest": "^3.4.1"
   }
 }
