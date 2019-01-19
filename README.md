@@ -122,4 +122,4 @@ If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc
 
 Provided under the terms of the [MIT License](https://github.com/posquit0/koa-rest-api-boilerplate/blob/master/LICENSE).
 
-Copyright © 2018-2019, [Byungjin Park](http://www.posquit0.com).
+Copyright © 2019, [Byungjin Park](http://www.posquit0.com).
