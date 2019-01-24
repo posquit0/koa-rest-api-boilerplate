@@ -39,12 +39,20 @@ RUN mv ./node_modules /tmp/node_modules_dev
 ### RELEASE
 FROM base AS release
 ARG DEBUG
+# Install for healthcheck
+RUN apk add --update --no-cache curl
 # Copy development dependencies if --build-arg DEBUG=1, or production dependencies
 COPY --from=dependencies /tmp/node_modules${DEBUG:+_dev} ./node_modules
 # Copy app sources
 COPY . .
 # Expose application port
-EXPOSE 7061
+ENV APP_PORT 7061
+EXPOSE $APP_PORT
+# Check container health by running a command inside the container
+HEALTHCHECK --interval=5s \
+            --timeout=5s \
+            --retries=6 \
+            CMD curl -fs http://localhost:$APP_PORT/ || exit 1
 # Set NODE_ENV to 'development' if --build-arg DEBUG=1, or 'production'
 ENV NODE_ENV=${DEBUG:+development}
 ENV NODE_ENV=${NODE_ENV:-production}
