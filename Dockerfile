@@ -38,10 +38,10 @@ RUN mv ./node_modules /tmp/node_modules_dev
 
 ### RELEASE
 FROM base AS release
-ARG DEBUG
 # Install for healthcheck
 RUN apk add --update --no-cache curl
 # Copy development dependencies if --build-arg DEBUG=1, or production dependencies
+ARG DEBUG
 COPY --from=dependencies /tmp/node_modules${DEBUG:+_dev} ./node_modules
 # Copy app sources
 COPY . .
