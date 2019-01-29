@@ -1,6 +1,8 @@
 'use strict';
 
 const supertest = require('supertest');
+const os = require('os');
+const pkg = require('../../package.json');
 const app = require('../../app');
 
 
@@ -20,11 +22,18 @@ describe('Home', () => {
         .expect('Content-Type', /json/)
         .expect(200);
 
-      const { status, data, message } = res.body;
-      const expected = ['name', 'version', 'description', 'author'];
-      expect(status).toBe('success');
-      expect(message).toBe('Hello, API!');
-      expect(Object.keys(data)).toEqual(expect.arrayContaining(expected));
+      const info = res.body;
+      const expected = ['name', 'version', 'description', 'environments'];
+      expect(Object.keys(info)).toEqual(expect.arrayContaining(expected));
+      expect(info.name).toBe(pkg.name);
+      expect(info.version).toBe(pkg.version);
+      expect(info.description).toBe(pkg.description);
+      expect(info.environments).toBeInstanceOf(Object);
+
+      const environments = info.environments;
+      expect(environments.hostname).toBe(os.hostname());
+      expect(environments.nodeVersion).toBe(process.versions['node']);
+      expect(environments.platform).toBe(`${process.platform}/${process.arch}`);
     });
   });
 
