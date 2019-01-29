@@ -40,7 +40,7 @@
   "scripts": {
     "start": "node app",
     "dev": "NODE_ENV=development nodemon --quiet | pino-pretty -c -l -t",
-    "test": "NODE_ENV=test jest --verbose --passWithNoTests --forceExit",
+    "test": "NODE_ENV=test jest --passWithNoTests",
     "test:unit": "npm test -- test/unit",
     "test:integration": "npm test -- test/integration",
     "test:watch": "npm test -- --watch",
@@ -58,24 +58,24 @@
     "@kasa/koa-request-id": "^1.0.0",
     "@koa/cors": "^2.2.3",
     "dotenv": "^6.2.0",
-    "elastic-apm-node": "^2.1.0",
-    "koa": "^2.6.2",
+    "elastic-apm-node": "^2.4.0",
+    "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
-    "pino": "^5.10.7",
+    "pino": "^5.11.1",
     "swagger-jsdoc": "^3.2.6",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "eslint": "^5.12.0",
+    "eslint": "^5.12.1",
     "eslint-config-kasa": "^0.2.0",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "jest-extended": "^0.11.0",
-    "jest-junit": "^6.0.1",
+    "jest-junit": "^6.2.1",
     "nodemon": "^1.18.9",
     "pino-pretty": "^2.5.0",
-    "prettier": "^1.15.3",
-    "supertest": "^3.4.1"
+    "prettier": "^1.16.1",
+    "supertest": "^3.4.2"
   }
 }

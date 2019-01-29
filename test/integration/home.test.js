@@ -4,8 +4,14 @@ const supertest = require('supertest');
 const app = require('../../app');
 
 
+const server = app.listen();
+
+afterAll(async () => {
+  await app.terminate();
+});
+
 describe('Home', () => {
-  const request = supertest(app.listen());
+  const request = supertest(server);
 
   describe('GET /', () => {
     it('<200> should always return with the API server information', async () => {
