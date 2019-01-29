@@ -46,7 +46,7 @@ COPY --from=dependencies /tmp/node_modules${DEBUG:+_dev} ./node_modules
 # Copy app sources
 COPY . .
 # Expose application port
-ENV APP_PORT 7061
+ENV APP_PORT 7071
 EXPOSE $APP_PORT
 # Check container health by running a command inside the container
 HEALTHCHECK --interval=5s \
