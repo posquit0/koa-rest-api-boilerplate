@@ -27,8 +27,10 @@ coverage
 ### Project ###
 # Metafiles
 .env.example
-.editorocnfig
+.editorconfig
 .dockerignore
+Dockerfile
+docker-compose.yml
 
 
 ### CI / CD ###
