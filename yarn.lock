@@ -145,12 +145,12 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@kasa/koa-logging@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/@kasa/koa-logging/-/koa-logging-0.2.0.tgz#3bfc332e844aaf14d150892f02e4a8b521b61f54"
-  integrity sha512-yp2gdCRClRrOqCjnXfl8pxkYYpB8V+D22jXILNvp4IE9FUqfyKlw+vUZxXuetFHJ2OaayJSOj/BnKvyzbs3MZQ==
+"@kasa/koa-logging@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@kasa/koa-logging/-/koa-logging-0.3.0.tgz#39354ccb6a8570666dc29f94b13f1228c85584a9"
+  integrity sha512-vrNtR3nm0jpD1bhOE0G8AG6Ulv+FNUX3AiybY0mhAn1S7TJa6RPT3KvN4jCScF/pjZpVTIzyMNDNDksQFHmmag==
   dependencies:
-    debug "^4.1.0"
+    debug "^4.1.1"
 
 "@kasa/koa-request-id@^1.0.0":
   version "1.0.0"
