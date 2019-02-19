@@ -54,7 +54,7 @@
     "lint:test": "eslint test"
   },
   "dependencies": {
-    "@kasa/koa-logging": "^0.2.0",
+    "@kasa/koa-logging": "^0.3.0",
     "@kasa/koa-request-id": "^1.0.0",
     "@koa/cors": "^2.2.3",
     "dotenv": "^6.2.0",
