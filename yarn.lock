@@ -1181,10 +1181,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-kasa@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/eslint-config-kasa/-/eslint-config-kasa-0.2.0.tgz#01a1f0e47ddd9c17467e8e074c25a57ad2ba5e92"
-  integrity sha512-VCht9SIyn1VAG4NPEnIbHLpuuGUdSpDLjiyNEO6V9SgsFwOnSFzEPKbTmQWYP574SJNJ1XU86ikBo1mUV80poA==
+eslint-config-kasa@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-kasa/-/eslint-config-kasa-0.3.0.tgz#a848c1d33738febf6780db6247bd6f13cb79cb13"
+  integrity sha512-0lGGnQpvZyHTrPKHfcT36OM1bxj0cnjhTltPQRJnwzOeHei2LGMRPrdjEJfa24fxZqpjy7WjSH7lTyFtAlXWsg==
 
 eslint-scope@^4.0.0:
   version "4.0.0"
