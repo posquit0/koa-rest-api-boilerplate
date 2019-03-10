@@ -1,11 +1,11 @@
 'use strict';
 
 const Router = require('koa-router');
-const homeController = require('./controllers/home');
+const miscController = require('./controllers/misc');
 
 
 const router = new Router();
-router.get('/', homeController.getApiInfo);
-router.get('/spec', homeController.getSwaggerSpec);
+router.get('/', miscController.getApiInfo);
+router.get('/spec', miscController.getSwaggerSpec);
 
 module.exports = router;

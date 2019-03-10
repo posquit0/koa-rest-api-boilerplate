@@ -12,7 +12,7 @@ afterAll(async () => {
   await app.terminate();
 });
 
-describe('Home', () => {
+describe('Misc', () => {
   const request = supertest(server);
 
   describe('GET /', () => {
