@@ -56,7 +56,7 @@
   "dependencies": {
     "@kasa/koa-logging": "^0.3.0",
     "@kasa/koa-request-id": "^2.0.1",
-    "@koa/cors": "^2.2.3",
+    "@koa/cors": "^3.0.0",
     "dotenv": "^6.2.0",
     "elastic-apm-node": "^2.6.0",
     "koa": "^2.7.0",
