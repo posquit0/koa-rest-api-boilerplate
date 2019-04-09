@@ -5,6 +5,8 @@ const bodyParser = require('koa-bodyparser');
 const cors = require('@koa/cors');
 const logging = require('@kasa/koa-logging');
 const requestId = require('@kasa/koa-request-id');
+const path = require('path');
+const serve = require('koa-static-server');
 const apmMiddleware = require('./middlewares/apm');
 const errorHandler = require('./middlewares/errorHandler');
 const responseHandler = require('./middlewares/responseHandler');
@@ -50,6 +52,15 @@ class App extends Koa {
     this.use(logging({
       logger,
       overrideSerializers: false
+    }));
+    // Swagger ui
+    this.use(serve({
+      rootDir: path.resolve(__dirname, 'static/docs'),
+      rootPath: '/docs'
+    }));
+    this.use(serve({
+      rootDir: require('swagger-ui-dist').absolutePath(),
+      rootPath: '/swagger'
     }));
   }
 

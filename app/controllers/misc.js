@@ -2,8 +2,6 @@
 
 const os = require('os');
 const pkginfo = require('../../package.json');
-const spec = require('../spec');
-
 
 /**
  * @swagger
@@ -46,22 +44,4 @@ exports.getApiInfo = ctx => {
   };
 
   ctx.body = data;
-};
-
-/**
- * @swagger
- * /spec:
- *   get:
- *     tags:
- *     - misc
- *     - public
- *     summary: Get Open API Specification.
- *     operationId: getSwaggerSpec
- *     responses:
- *       '200':
- *         x-summary: OK
- *         description: Describe Swagger Open API Specification
- */
-exports.getSwaggerSpec = ctx => {
-  ctx.body = spec;
 };
