@@ -1,8 +1,10 @@
 ### Project ###
+/reports/
 .*.log
 .*.log.[0-9]
 *.log
 *.log.[0-9]
+.tern*
 
 
 ### Intellij ###
