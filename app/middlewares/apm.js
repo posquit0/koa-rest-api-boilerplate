@@ -4,6 +4,19 @@ const apm = require('elastic-apm-node');
 const debug = require('debug')('koa:apm');
 
 
+function serializeUser(user = {}) {
+  if (!user) {
+    return null;
+  }
+  return {
+    id: user.id,
+    username: user.name,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
+    gender: user.gender
+  };
+}
+
 function redactAuthHeaders(payload) {
   if (payload.context && payload.context.request && payload.context.request.headers) {
     const headers = payload.context.request.headers;
@@ -29,29 +42,33 @@ module.exports = () => {
   return async function apmMiddleware(ctx, next) {
     // Skip if apm is disabled
     if (!apm.isStarted()) {
+      debug('Skipped because APM is disabled');
       return await next();
     }
 
-    await next();
+    try {
+      await next();
+    } catch (err) {
+      // Sending error when response is sent
+      ctx.res.on('finish', () => {
+        apm.captureError(err);
 
-    // Set custom context data
-    const reqId = ctx.state.reqId
-      || ctx.reqId
-      || ctx.req.id
-      || ctx.get('X-Request-Id');
-    const custom = { reqId };
-    apm.setCustomContext(custom);
+        debug('Sent error to APM server');
+      });
+      throw err;
+    } finally {
+      // Set custom context data
+      const reqId = ctx.state.reqId
+        || ctx.reqId
+        || ctx.req.id
+        || ctx.get('X-Request-Id');
+      const custom = { reqId };
+      apm.setCustomContext(custom);
 
-    // Set user context data
-    if (ctx.state.user) {
-      const user = ((user) => ({
-        id: user.id,
-        username: user.name,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        gender: user.gender
-      }))(ctx.state.user);
-      apm.setUserContext(user);
+      // Set user context data
+      apm.setUserContext(
+        serializeUser(ctx.state.user)
+      );
     }
   };
 };
