@@ -7,7 +7,6 @@ const logging = require('@kasa/koa-logging');
 const requestId = require('@kasa/koa-request-id');
 const apmMiddleware = require('./middlewares/apm');
 const errorHandler = require('./middlewares/errorHandler');
-const responseHandler = require('./middlewares/responseHandler');
 const logger = require('./logger');
 const router = require('./routes');
 
@@ -28,6 +27,8 @@ class App extends Koa {
   }
 
   _configureMiddlewares() {
+    this.use(errorHandler());
+    this.use(apmMiddleware());
     this.use(
       bodyParser({
         enableTypes: ['json', 'form'],
@@ -36,6 +37,10 @@ class App extends Koa {
       })
     );
     this.use(requestId());
+    this.use(logging({
+      logger,
+      overrideSerializers: false
+    }));
     this.use(
       cors({
         origin: '*',
@@ -44,13 +49,6 @@ class App extends Koa {
         exposeHeaders: ['Content-Length', 'Date', 'X-Request-Id']
       })
     );
-    this.use(responseHandler());
-    this.use(apmMiddleware());
-    this.use(errorHandler());
-    this.use(logging({
-      logger,
-      overrideSerializers: false
-    }));
   }
 
   _configureRoutes() {

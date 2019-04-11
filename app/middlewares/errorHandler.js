@@ -1,5 +1,6 @@
 'use strict';
 
+const Response = require('../utils/response');
 const { UNKNOWN_ENDPOINT, UNKNOWN_ERROR } = require('../constants/error');
 
 
@@ -16,14 +17,10 @@ function errorHandler() {
 
       // Respond 404 Not Found for unhandled request
       if (!ctx.body && (!ctx.status || ctx.status === 404)) {
-        ctx.res.notFound(UNKNOWN_ENDPOINT);
+        return Response.notFound(ctx, UNKNOWN_ENDPOINT);
       }
     } catch (err) {
-      ctx.res.internalServerError(UNKNOWN_ERROR);
-
-      // Recommended for centralized error reporting,
-      // retaining the default behaviour in Koa
-      ctx.app.emit('error', err, ctx);
+      return Response.internalServerError(ctx, UNKNOWN_ERROR);
     }
   };
 }
