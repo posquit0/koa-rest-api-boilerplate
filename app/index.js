@@ -22,7 +22,7 @@ function handleError(err, ctx) {
 }
 
 async function terminate(signal) {
-  try{
+  try {
     await app.terminate();
   } finally {
     logger.info({ signal, event: 'terminate' }, 'App is terminated');
