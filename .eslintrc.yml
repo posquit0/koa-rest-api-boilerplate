@@ -1,5 +1,5 @@
 root: true
 extends:
-  - 'kasa'
+- 'kasa'
 parserOptions:
   sourceType: 'script'
