@@ -7,6 +7,10 @@ module.exports = {
   setupFilesAfterEnv: [
     'jest-extended'
   ],
+  collectCoverageFrom: [
+    'app/**/*.{js,jsx}',
+    '!**/node_modules/**'
+  ],
   testPathIgnorePatterns: [
     '/node_modules/'
   ],
