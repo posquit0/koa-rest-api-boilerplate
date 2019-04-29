@@ -20,8 +20,6 @@ const spec = require('../spec');
  *         description: OK
  *         content:
  *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/SuccessResponse'
  *             example:
  *               name: 'koa-rest-api-boilerplate'
  *               version: 'v2.0.0'
@@ -64,4 +62,31 @@ exports.getApiInfo = ctx => {
  */
 exports.getSwaggerSpec = ctx => {
   ctx.body = spec;
+};
+
+/**
+ * @swagger
+ * /status:
+ *   get:
+ *     tags:
+ *     - misc
+ *     - public
+ *     summary: Provide a detailed information about the service health.
+ *     operationId: getSwaggerSpec
+ *     responses:
+ *       '200':
+ *         x-summary: OK
+ *         description: Healthy Service
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 'pass'
+ */
+exports.healthcheck = ctx => {
+  // TODO: Improve healthcheck logic
+  // status: ['pass', 'fail', 'warn']
+  const data = {
+    status: 'pass'
+  };
+  ctx.body = data;
 };

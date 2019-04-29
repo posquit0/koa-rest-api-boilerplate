@@ -51,4 +51,16 @@ describe('Misc', () => {
       expect(spec).toHaveProperty('tags');
     });
   });
+
+  describe('GET /status', () => {
+    it('<200> should return `healthy` status if all components are healthy', async () => {
+      const res = await request
+        .get('/status')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const { status } = res.body;
+      expect(status).toBe('pass');
+    });
+  });
 });
