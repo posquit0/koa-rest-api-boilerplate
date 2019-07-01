@@ -74,7 +74,7 @@
     "jest": "^24.7.1",
     "jest-extended": "^0.11.1",
     "jest-junit": "^6.3.0",
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^9.0.0",
     "nodemon": "^1.18.11",
     "pino-pretty": "^3.0.0",
     "prettier": "^1.17.0",
