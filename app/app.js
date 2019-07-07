@@ -6,7 +6,7 @@ const cors = require('@koa/cors');
 const logging = require('@kasa/koa-logging');
 const requestId = require('@kasa/koa-request-id');
 const apmMiddleware = require('./middlewares/apm');
-const errorHandler = require('./middlewares/errorHandler');
+const errorHandler = require('./middlewares/error-handler');
 const logger = require('./logger');
 const router = require('./routes');
 

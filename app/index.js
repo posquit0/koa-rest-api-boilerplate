@@ -4,7 +4,7 @@
 
 // Load APM on production environment
 const config = require('./config');
-const apm = require('./apm');
+const apm = require('./connections/apm');
 const App = require('./app');
 const logger = require('./logger');
 
