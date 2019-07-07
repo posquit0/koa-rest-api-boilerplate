@@ -3,128 +3,129 @@ version: 2
 jobs:
   test:
     docker:
-      # Primary container
-      - image: circleci/node:10.16.0
+    # Primary container
+    - image: circleci/node:10.16.0
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - dependencies-{{ .Branch }}-
-            - dependencies-master-
-      - run:
-          name: Install Dependencies
-          command: yarn
-      - save_cache:
-          key: dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Lint and Test
-          command: |
-            mkdir -p ~/reports
-            yarn lint --format junit --output-file ~/reports/eslint.xml
-            yarn test:coverage --ci --coverageDirectory ~/reports --reporters jest-junit
-          environment:
-            JEST_JUNIT_OUTPUT: "~/reports/test-results.xml"
-      - run:
-          name: Send Coverage
-          command: yarn run coveralls < ~/reports/lcov.info
-      - store_test_results:
-          path: ~/reports
-      - store_artifacts:
-          path: ~/reports
+    - checkout
+    - restore_cache:
+        keys:
+        - dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - dependencies-{{ .Branch }}-
+        - dependencies-master-
+    - run:
+        name: Install Dependencies
+        command: yarn
+    - save_cache:
+        key: dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        paths:
+        - ./node_modules
+    - run:
+        name: Lint and Test
+        command: |
+          mkdir -p ~/reports
+          yarn lint --format junit --output-file ~/reports/eslint.xml
+          yarn test:coverage:unit --ci --coverageDirectory ~/reports/unit
+          yarn test:coverage:integration --ci --coverageDirectory ~/reports/integration
+    - run:
+        name: Send Code Coverage Report
+        command: |
+          yarn codecov -F unit -f ~/reports/unit/*
+          yarn codecov -F integration -f ~/reports/integration/*
+    - store_test_results:
+        path: ~/reports
+    - store_artifacts:
+        path: ~/reports
 
   build:
     docker:
-      - image: posquit0/docker-cd
+    - image: posquit0/docker-cd
     environment:
       DOCKER_IMAGE: app
     steps:
-      - checkout
-      - setup_remote_docker
-      - restore_cache:
-          keys:
-            - docker-{{ checksum "package.json" }}
-            - docker-
-      - run:
-          name: Load Docker Images
-          command: |
-            if [ -e "/docker-cache/image.tar" ]; then
-              docker load -i /docker-cache/image.tar
-            fi
-      - run:
-          name: Build Docker Image
-          command: |
-            docker build --cache-from=$DOCKER_IMAGE --rm=false -t $DOCKER_IMAGE .
-      - run:
-          name: Save Docker Images
-          command: |
-            mkdir -p /docker-cache
-            docker save -o /docker-cache/image.tar $DOCKER_IMAGE
-      - save_cache:
-          key: docker-{{ checksum "package.json" }}-{{ epoch }}
-          paths:
-            - /docker-cache
-      - persist_to_workspace:
-          root: /docker-cache
-          paths:
-            - image.tar
+    - checkout
+    - setup_remote_docker
+    - restore_cache:
+        keys:
+        - docker-{{ checksum "package.json" }}
+        - docker-
+    - run:
+        name: Load Docker Images
+        command: |
+          if [ -e "/docker-cache/image.tar" ]; then
+            docker load -i /docker-cache/image.tar
+          fi
+    - run:
+        name: Build Docker Image
+        command: |
+          docker build --cache-from=$DOCKER_IMAGE --rm=false -t $DOCKER_IMAGE .
+    - run:
+        name: Save Docker Images
+        command: |
+          mkdir -p /docker-cache
+          docker save -o /docker-cache/image.tar $DOCKER_IMAGE
+    - save_cache:
+        key: docker-{{ checksum "package.json" }}-{{ epoch }}
+        paths:
+        - /docker-cache
+    - persist_to_workspace:
+        root: /docker-cache
+        paths:
+        - image.tar
 
   deploy:
     docker:
-      - image: posquit0/docker-cd
+    - image: posquit0/docker-cd
     environment:
       AWS_REGION: ap-northeast-2
       DOCKER_IMAGE: koa-rest-api-boilerplate
     steps:
-      - setup_remote_docker
-      - attach_workspace:
-          at: /docker-cache
-      - run:
-          name: Load Docker Images
-          command: docker load -i /docker-cache/image.tar
-      - run:
-          name: Login into the AWS ECR
-          command: eval "$(aws ecr get-login --region $AWS_REGION --no-include-email)"
-      - deploy:
-          name: Push Docker Image to Docker Registry
-          command: |
-            if [ $CIRCLE_BRANCH == "develop" ]; then
-              TAG="develop"
-              VERSION=$CIRCLE_SHA1
-            elif [ $CIRCLE_TAG ]; then
-              TAG="latest"
-              VERSION=$CIRCLE_TAG
-            fi
-            docker tag app $DOCKER_ECR/$DOCKER_IMAGE:$TAG
-            docker tag app $DOCKER_ECR/$DOCKER_IMAGE:$VERSION
-            docker push $DOCKER_ECR/$DOCKER_IMAGE:$TAG
-            docker push $DOCKER_ECR/$DOCKER_IMAGE:$VERSION
-      - run:
-          name: Logout from the AWS ECR
-          command: |
-            docker logout https://$DOCKER_ECR
+    - setup_remote_docker
+    - attach_workspace:
+        at: /docker-cache
+    - run:
+        name: Load Docker Images
+        command: docker load -i /docker-cache/image.tar
+    - run:
+        name: Login into the AWS ECR
+        command: eval "$(aws ecr get-login --region $AWS_REGION --no-include-email)"
+    - deploy:
+        name: Push Docker Image to Docker Registry
+        command: |
+          if [ $CIRCLE_BRANCH == "develop" ]; then
+            TAG="develop"
+            VERSION=$CIRCLE_SHA1
+          elif [ $CIRCLE_TAG ]; then
+            TAG="latest"
+            VERSION=$CIRCLE_TAG
+          fi
+          docker tag app $DOCKER_ECR/$DOCKER_IMAGE:$TAG
+          docker tag app $DOCKER_ECR/$DOCKER_IMAGE:$VERSION
+          docker push $DOCKER_ECR/$DOCKER_IMAGE:$TAG
+          docker push $DOCKER_ECR/$DOCKER_IMAGE:$VERSION
+    - run:
+        name: Logout from the AWS ECR
+        command: |
+          docker logout https://$DOCKER_ECR
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - test:
-          context: org-global
-      - build:
-          context: org-global
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              only:
-                - develop
-      # Uncomment when you use this boilerplate for your own project
-      # - deploy:
-      #     context: org-global
-      #     requires:
-      #       - build
-      #     filters:
-      #       tags:
-      #         only: /^v.*/
+    - test:
+        context: org-global
+    - build:
+        context: org-global
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            only:
+            - develop
+    # Uncomment when you use this boilerplate for your own project
+    # - deploy:
+    #     context: org-global
+    #     requires:
+    #     - build
+    #     filters:
+    #       tags:
+    #         only: /^v.*/

@@ -1,0 +1,14 @@
+coverage:
+  status:
+    project:
+      unit:
+        flags:
+        - unit
+      integration:
+        flags:
+        - integration
+
+parsers:
+  javascript:
+    # Partial line coverage only available for javascript, not TypeScript
+    enable_partials: yes

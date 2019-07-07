@@ -7,15 +7,15 @@
 </div>
 
 <p align="center">
-  Boilerplate for Node.js Koa RESTful API application with Docker, Swagger, Jest, Coveralls, and Circle CI
+  Boilerplate for Node.js Koa RESTful API application with Docker, Swagger, Jest, CodeCov, and Circle CI
 </p>
 
 <div align="center">
   <a href="https://circleci.com/gh/posquit0/koa-rest-api-boilerplate">
     <img alt="CircleCI" src="https://circleci.com/gh/posquit0/koa-rest-api-boilerplate.svg?style=shield" />
   </a>
-  <a href="https://coveralls.io/github/posquit0/koa-rest-api-boilerplate">
-    <img src="https://coveralls.io/repos/github/posquit0/koa-rest-api-boilerplate/badge.svg" alt='Coverage Status' />
+  <a href="https://codecov.io/gh/posquit0/koa-rest-api-boilerplate">
+    <img alt="Coverage Status" src="https://codecov.io/gh/posquit0/koa-rest-api-boilerplate/branch/master/graph/badge.svg" />
   </a>
   <a href="https://david-dm.org/posquit0/koa-rest-api-boilerplate">
     <img alt="npm" src="https://img.shields.io/david/posquit0/koa-rest-api-boilerplate.svg?style=flat-square" />

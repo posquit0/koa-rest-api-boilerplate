@@ -68,7 +68,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "coveralls": "^3.0.4",
+    "codecov": "^3.5.0",
     "eslint": "^6.0.1",
     "eslint-config-kasa": "^0.4.0",
     "husky": "^3.0.0",
