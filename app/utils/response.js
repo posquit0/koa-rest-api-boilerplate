@@ -56,6 +56,7 @@ class Response {
   }
 
   static success(ctx, params = {}) {
+    ctx.status = params.statusCode || ctx.status;
     if (ctx.status >= 400) {
       ctx.status = this.STATUS_CODES.OK;
     }
@@ -64,6 +65,7 @@ class Response {
   }
 
   static fail(ctx, params = {}) {
+    ctx.status = params.statusCode || ctx.status;
     if (ctx.status < 400 || ctx.status >= 500) {
       ctx.status = this.STATUS_CODES.BAD_REQUEST;
     }
@@ -72,6 +74,7 @@ class Response {
   }
 
   static error(ctx, params = {}) {
+    ctx.status = params.statusCode || ctx.status;
     if (ctx.status < 500) {
       ctx.status = this.STATUS_CODES.INTERNAL_SERVER_ERROR;
     }
