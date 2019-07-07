@@ -101,7 +101,7 @@ $ yarn pack
 All test for this boilerplate uses following tools.
 
 - [Jest](https://github.com/facebook/jest)
-- [supertest](https://github.com/visionmedia/supertest): Easy HTTP assertions for integration test
+- [supertest](https://github.com/visionmedia/supertest) - Easy HTTP assertions for integration test
 
 
 ## Contributing
@@ -113,13 +113,21 @@ This project follows the [**Contributor Covenant**](http://contributor-covenant.
 Please use the [issue tracker](https://github.com/posquit0/koa-rest-api-boilerplate/issues) to report any bugs or ask feature requests.
 
 
-## Contact
+## Self Promotion
 
-If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
+Like this project? Please give it a ★  on [GitHub](https://github.com/posquit0/awesome-engineer-onboarding)! It helps this project **a lot**.
+And if you're feeling especially charitable, follow [posquit0](https://posquit0.com) on [GitHub](https://github.com/posquit0).
+
+
+## See Also
+
+- [koa-logging](https://github.com/kasa-network/koa-logging) - A middleware that logs request and response with Pino.
+- [koa-request-id](https://github.com/kasa-network/koa-request-id) - A middleware that generates a unique Request ID for every incoming HTTP request.
+- [koa-http-client](https://github.com/kasa-network/koa-http-client) - A middleware that attachs HTTP client to communicate with the context during inter-service communications.
 
 
 ## License
 
 Provided under the terms of the [MIT License](https://github.com/posquit0/koa-rest-api-boilerplate/blob/master/LICENSE).
 
-Copyright © 2019, [Byungjin Park](http://www.posquit0.com).
+Copyright © 2017-2019, [Byungjin Park](http://www.posquit0.com).
