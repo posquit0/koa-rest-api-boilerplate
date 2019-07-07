@@ -9,7 +9,7 @@
 #
 
 ### BASE
-FROM node:10.15.0-alpine AS base
+FROM node:10.16.0-alpine AS base
 LABEL maintainer "Byungjin Park <posquit0.bj@gmail.com>"
 # Set the working directory
 WORKDIR /app

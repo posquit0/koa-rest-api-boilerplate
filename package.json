@@ -34,7 +34,7 @@
     "skeleton"
   ],
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">= 8.12.0"
   },
   "main": "app",
   "scripts": {
@@ -57,27 +57,27 @@
     "@kasa/koa-logging": "^0.3.0",
     "@kasa/koa-request-id": "^2.0.1",
     "@koa/cors": "^3.0.0",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.0.0",
     "elastic-apm-node": "^2.12.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
-    "pino": "^5.12.3",
+    "pino": "^5.12.6",
     "swagger-jsdoc": "^3.2.9",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "coveralls": "^3.0.3",
-    "eslint": "^5.16.0",
+    "coveralls": "^3.0.4",
+    "eslint": "^6.0.1",
     "eslint-config-kasa": "^0.4.0",
-    "husky": "^2.1.0",
-    "jest": "^24.7.1",
+    "husky": "^3.0.0",
+    "jest": "^24.8.0",
     "jest-extended": "^0.11.1",
-    "jest-junit": "^6.3.0",
-    "lint-staged": "^8.1.5",
-    "nodemon": "^1.18.11",
-    "pino-pretty": "^3.0.0",
-    "prettier": "^1.17.0",
+    "jest-junit": "^6.4.0",
+    "lint-staged": "^9.1.0",
+    "nodemon": "^1.19.1",
+    "pino-pretty": "^3.2.0",
+    "prettier": "^1.18.2",
     "supertest": "^4.0.2"
   }
 }
