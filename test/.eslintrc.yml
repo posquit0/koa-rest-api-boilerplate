@@ -1,2 +1,4 @@
 env:
   jest: true
+rules:
+  'no-shadow': off

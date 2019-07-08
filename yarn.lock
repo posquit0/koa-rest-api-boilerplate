@@ -1640,10 +1640,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-kasa@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/eslint-config-kasa/-/eslint-config-kasa-0.4.0.tgz#a1dcfb16c7bc9e6533bcbbd4024c45e8d6a092bb"
-  integrity sha512-LGnUEK9pnuF4A1HeEgVXEBly9+xHaGbNa8ydQiW0Ar3XwRH05FRcaI6d+ordpkXhc115r5MbiBiFDuTdfhmWPg==
+eslint-config-kasa@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/eslint-config-kasa/-/eslint-config-kasa-0.5.0.tgz#1094093081ebc7350840ea0e79bab0c1de5ab2a2"
+  integrity sha512-flAHTVnPHgtIEUY2L9Dim9LL38GH1kM5exRjoyRYWtLkZP8hKe33OTlt98iINqyRD5ddPHom462jumf0d9I2ww==
 
 eslint-scope@^4.0.3:
   version "4.0.3"
