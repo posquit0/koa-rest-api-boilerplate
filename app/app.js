@@ -1,11 +1,11 @@
 'use strict';
 
 const Koa = require('koa');
-const bodyParser = require('koa-bodyparser');
 const cors = require('@koa/cors');
 const logging = require('@kasa/koa-logging');
 const requestId = require('@kasa/koa-request-id');
 const apmMiddleware = require('./middlewares/apm');
+const bodyParser = require('./middlewares/body-parser');
 const errorHandler = require('./middlewares/error-handler');
 const logger = require('./logger');
 const router = require('./routes');
@@ -29,18 +29,17 @@ class App extends Koa {
   _configureMiddlewares() {
     this.use(errorHandler());
     this.use(apmMiddleware());
-    this.use(
-      bodyParser({
-        enableTypes: ['json', 'form'],
-        formLimit: '10mb',
-        jsonLimit: '10mb'
-      })
-    );
     this.use(requestId());
     this.use(logging({
       logger,
       overrideSerializers: false
     }));
+    this.use(
+      bodyParser({
+        enableTypes: ['json'],
+        jsonLimit: '10mb'
+      })
+    );
     this.use(
       cors({
         origin: '*',
