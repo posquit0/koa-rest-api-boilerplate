@@ -1,6 +1,6 @@
 'use strict';
 
-const { isString } = require('util');
+const { isString, isUndefined } = require('util');
 const got = require('got');
 const debug = require('debug')('api:http');
 
@@ -39,7 +39,7 @@ class HttpApi {
 
   _checkParams(params, required = []) {
     const isSufficient = required.every(
-      param => Object.hasOwnProperty.call(params, param)
+      param => !isUndefined(params[param])
     );
     if (!isSufficient) {
       throw new Error(`Required Parameters: ${required}`);

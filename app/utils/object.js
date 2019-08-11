@@ -1,5 +1,7 @@
 'use strict';
 
+const { isUndefined } = require('util');
+
 
 /**
  * Creates an object composed of the picked object properties.
@@ -10,7 +12,7 @@
  */
 function pick(object, keys) {
   const picked = keys.reduce((obj, key) => {
-    if (typeof object[key] !== 'undefined') {
+    if (!isUndefined(object[key])) {
       obj[key] = object[key];
     }
     return obj;
