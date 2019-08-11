@@ -1,12 +1,13 @@
 'use strict';
 
 const Koa = require('koa');
-const cors = require('@koa/cors');
 const logging = require('@kasa/koa-logging');
 const requestId = require('@kasa/koa-request-id');
 const apmMiddleware = require('./middlewares/apm');
 const bodyParser = require('./middlewares/body-parser');
+const cors = require('./middlewares/cors');
 const errorHandler = require('./middlewares/error-handler');
+const corsConfig = require('./config/cors');
 const logger = require('./logger');
 const router = require('./routes');
 
@@ -42,7 +43,7 @@ class App extends Koa {
     );
     this.use(
       cors({
-        origin: '*',
+        origins: corsConfig.origins,
         allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
         allowHeaders: ['Content-Type', 'Authorization'],
         exposeHeaders: ['Content-Length', 'Date', 'X-Request-Id']
