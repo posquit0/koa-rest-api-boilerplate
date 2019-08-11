@@ -21,8 +21,14 @@ module.exports.UNKNOWN_RESOURCE = {
   message: 'The specified resource was not found.'
 };
 
+module.exports.INVALID_REQUEST_BODY_FORMAT = {
+  statusCode: 422,
+  code: 'INVALID_REQUEST_BODY_FORMAT',
+  message: 'The request body has invalid format.'
+};
+
 module.exports.INVALID_REQUEST = {
-  statusCode: 423,
+  statusCode: 422,
   code: 'INVALID_REQUEST',
   message: 'The request has invalid parameters.'
 };
