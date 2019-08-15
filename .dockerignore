@@ -1,41 +1,21 @@
-### Git ###
-.git*
-
-
-### Node.js ###
-# Dependency directories
-node_modules
-
-# Logs
-logs
-*.log
-*.log.[0-9]
-log*
-
-# Coverage directory
-lib-cov
-coverage
-.nyc_output
-
-# Optional NPM cache directory
-.npm
-
-# Package ignore file
-.npmignore
-
-
-### Project ###
-# Metafiles
-.env.example
-.editorconfig
-.dockerignore
 Dockerfile
-docker-compose.yml
-
-
-### CI / CD ###
-# CircleCI
-circle*
-.circle*
-# Jenkins
 Jenkinsfile
+coverage
+docker-compose.yml
+docs
+node_modules
+yarn-error.log
+*.md
+!README.md
+.circle*
+.codecov*
+.coveralls*
+.dockerignore
+.drone*
+.editorconfig
+.env
+.git*
+.huskyrc*
+.lintstagedrc*
+.npmignore
+.prettierrc*
