@@ -1,6 +1,6 @@
 ---
 name: 🙋 Question
-about: Ask a question about the boilerplate
+about: Ask a question about this project
 labels: kind/question
 assignees:
 

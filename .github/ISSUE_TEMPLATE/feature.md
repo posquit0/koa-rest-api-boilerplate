@@ -14,6 +14,7 @@ fully-fledged proposal, but it does need to be clear - it's hard to act on
 suggestions that are too vague or generic.
 -->
 
+
 ### Why
 <!--
 Why is this important to you? How would you use it? We need to know what
@@ -22,6 +23,7 @@ both you and other potential users, so we know how we should prioritize it and
 so we can see if a better solution might exist.
 -->
 
+
 ### Possible Solutions
 <!--
 Optional: How might this be implemented? This is optional, but it helps us put
@@ -29,6 +31,7 @@ the size and cost of the feature into perspective. Simpler features to implement
 can often be justified by just being helpful, but big, complex features could
 require a massive benefit to pay for their size, scale, and complexity.
 -->
+
 
 ### Open Questions
 <!--
