@@ -1,7 +1,7 @@
 ---
 name: 🐛 Bug
 about: Report a bug in the boilerplate
-labels: bug
+labels: kind/bug
 assignees:
 
 ---
