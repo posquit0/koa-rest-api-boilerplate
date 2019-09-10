@@ -1,5 +1,5 @@
 ---
-name: \U0001F41B Bug
+name: 🐛 Bug
 about: Report a bug in the boilerplate
 labels: bug
 assignees:
