@@ -126,6 +126,36 @@ And if you're feeling especially charitable, follow [posquit0](https://posquit0.
 - [koa-http-client](https://github.com/kasa-network/koa-http-client) - A middleware that attachs HTTP client to communicate with the context during inter-service communications.
 
 
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/posquit0/koa-rest-api-boilerplate/graphs/contributors"><img src="https://opencollective.com/koa-rest-api-boilerplate/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/koa-rest-api-boilerplate/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/koa-rest-api-boilerplate"><img src="https://opencollective.com/koa-rest-api-boilerplate/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/koa-rest-api-boilerplate/contribute)]
+
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/0/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/1/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/2/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/3/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/4/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/5/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/6/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/7/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/8/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/koa-rest-api-boilerplate/organization/9/website"><img src="https://opencollective.com/koa-rest-api-boilerplate/organization/9/avatar.svg"></a>
+
 ## License
 
 Provided under the terms of the [MIT License](https://github.com/posquit0/koa-rest-api-boilerplate/blob/master/LICENSE).
