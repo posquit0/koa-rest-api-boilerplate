@@ -59,7 +59,7 @@
     "@kasa/koa-request-id": "^2.0.1",
     "@koa/cors": "^3.0.0",
     "dotenv": "^8.1.0",
-    "elastic-apm-node": "^2.16.2",
+    "elastic-apm-node": "^3.0.0",
     "got": "^9.6.0",
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.0",
