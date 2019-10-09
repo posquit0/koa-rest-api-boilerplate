@@ -52,7 +52,8 @@
     "test:coverage:integration": "npm run test:integration -- --coverage",
     "lint": "eslint app test",
     "lint:app": "eslint app",
-    "lint:test": "eslint test"
+    "lint:test": "eslint test",
+    "postinstall": "opencollective-postinstall || true"
   },
   "dependencies": {
     "@kasa/koa-logging": "^0.3.0",
@@ -64,6 +65,7 @@
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
+    "opencollective-postinstall": "^2.0.2",
     "pino": "^5.13.2",
     "swagger-jsdoc": "^3.4.0",
     "uuid": "^3.3.3"
@@ -82,5 +84,9 @@
     "pino-pretty": "^3.2.1",
     "prettier": "^1.18.2",
     "supertest": "^4.0.2"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/koa-rest-api-boilerplate"
   }
 }
