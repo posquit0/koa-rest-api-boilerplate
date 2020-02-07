@@ -60,7 +60,7 @@
     "@koa/cors": "^3.0.0",
     "dotenv": "^8.2.0",
     "elastic-apm-node": "^3.2.0",
-    "got": "^9.6.0",
+    "got": "^10.5.2",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
