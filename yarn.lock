@@ -1752,9 +1752,9 @@ ee-first@1.1.1:
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-elastic-apm-http-client@^9.2.0:
+elastic-apm-http-client@^9.3.0:
   version "9.3.0"
-  resolved "https://registry.npmjs.org/elastic-apm-http-client/-/elastic-apm-http-client-9.3.0.tgz#fcbb3b4f2af209dc304ac496438d381ef19b9b44"
+  resolved "https://registry.yarnpkg.com/elastic-apm-http-client/-/elastic-apm-http-client-9.3.0.tgz#fcbb3b4f2af209dc304ac496438d381ef19b9b44"
   integrity sha512-vxySk7S1oPN7uPcjv0+GLs3Y1cmN7WDVTEHBJixEDg+L6DJMysgxIGst+32Nc0ZmeU5NIjV/Ds9b+6S/yXRdIQ==
   dependencies:
     breadth-filter "^2.0.0"
@@ -1767,10 +1767,10 @@ elastic-apm-http-client@^9.2.0:
     stream-chopper "^3.0.1"
     unicode-byte-truncate "^1.0.0"
 
-elastic-apm-node@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.npmjs.org/elastic-apm-node/-/elastic-apm-node-3.2.0.tgz#a1aa5b255f8867788b38e2854aa331c3a0cc0e22"
-  integrity sha512-GnoYcge/Xy8/I/0pHF2V9tZU1aRFMqcP7PQ0WXCqdETMUUq7Gmf0fcdzjA8CoDALR+rfsjn4ByF1p7uXoTJoPQ==
+elastic-apm-node@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/elastic-apm-node/-/elastic-apm-node-3.4.0.tgz#74c4d5e31a3d94a9e418668949bb8bdaeb56db1e"
+  integrity sha512-0TPNPd6NUIVtgN0/xM5+uR7wQaZWphYpv30WUAXwKzpwzEfqQw4bl95xzu4OatHAkjnxP9Oih+nLtz0+TFCiJg==
   dependencies:
     after-all-results "^2.0.0"
     async-value-promise "^1.1.1"
@@ -1778,8 +1778,8 @@ elastic-apm-node@^3.2.0:
     console-log-level "^1.4.1"
     cookie "^0.4.0"
     core-util-is "^1.0.2"
-    elastic-apm-http-client "^9.2.0"
-    end-of-stream "^1.4.1"
+    elastic-apm-http-client "^9.3.0"
+    end-of-stream "^1.4.4"
     fast-safe-stringify "^2.0.7"
     http-headers "^3.0.2"
     http-request-to-url "^1.0.0"
@@ -1789,14 +1789,14 @@ elastic-apm-node@^3.2.0:
     object-filter-sequence "^1.0.0"
     object-identity-map "^1.0.2"
     original-url "^1.2.3"
-    read-pkg-up "^7.0.0"
+    read-pkg-up "^7.0.1"
     redact-secrets "^1.0.0"
     relative-microtime "^2.0.0"
     require-ancestors "^1.0.0"
-    require-in-the-middle "^5.0.0"
-    semver "^6.1.1"
+    require-in-the-middle "^5.0.3"
+    semver "^6.3.0"
     set-cookie-serde "^1.0.0"
-    shallow-clone-shim "^1.0.0"
+    shallow-clone-shim "^2.0.0"
     sql-summary "^1.0.1"
     stackman "^4.0.0"
     traceparent "^1.0.0"
@@ -2438,11 +2438,6 @@ get-own-enumerable-property-symbols@^3.0.0:
   version "3.0.2"
   resolved "https://registry.npmjs.org/get-own-enumerable-property-symbols/-/get-own-enumerable-property-symbols-3.0.2.tgz#b5fde77f22cbe35f390b4e089922c50bce6ef664"
   integrity sha512-I0UBV/XOz1XkIJHEUDMZAbzCThU/H8DxmSfmdGcKPnVhu2VfFqr34jr9777IyaTYvxjedWhqVIilEDsCdP5G6g==
-
-get-own-property-descriptors-polyfill@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/get-own-property-descriptors-polyfill/-/get-own-property-descriptors-polyfill-1.0.1.tgz#e0814a5c32bd9ef387a1de44147f93056a904002"
-  integrity sha512-S1k3UgpTshd171qaPldcr+BY82277tsNI+ETIZLJ/re6KYQYbV4qRtUw5kmHIZlEy4hZvwdzHFn+8xupNVl4YQ==
 
 get-port@^5.0.0:
   version "5.0.0"
@@ -5312,9 +5307,9 @@ read-pkg-up@^4.0.0:
     find-up "^3.0.0"
     read-pkg "^3.0.0"
 
-read-pkg-up@^7.0.0:
+read-pkg-up@^7.0.1:
   version "7.0.1"
-  resolved "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-7.0.1.tgz#f3a6135758459733ae2b95638056e1854e7ef507"
+  resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-7.0.1.tgz#f3a6135758459733ae2b95638056e1854e7ef507"
   integrity sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==
   dependencies:
     find-up "^4.1.0"
@@ -5518,10 +5513,10 @@ require-directory@^2.1.1:
   resolved "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
 
-require-in-the-middle@^5.0.0:
-  version "5.0.2"
-  resolved "https://registry.npmjs.org/require-in-the-middle/-/require-in-the-middle-5.0.2.tgz#ce3593007a61583b39ccdcd2c167a2a326c670b2"
-  integrity sha512-l2r6F9i6t5xp4OE9cw/daB/ooQKHZOOW1AYPADhEvk/Tj/THJDS8gePp76Zyuht6Cj57a0KL+eHK5Dyv7wZnKA==
+require-in-the-middle@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/require-in-the-middle/-/require-in-the-middle-5.0.3.tgz#ef8bfd771760db573bc86d1341d8ae411a04c600"
+  integrity sha512-p/ICV8uMlqC4tjOYabLMxAWCIKa0YUQgZZ6KDM0xgXJNgdGQ1WmL2A07TwmrZw+wi6ITUFKzH5v3n+ENEyXVkA==
   dependencies:
     debug "^4.1.1"
     module-details-from-path "^1.0.3"
@@ -5723,9 +5718,9 @@ semver-diff@^2.0.0:
   resolved "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
 
-semver@^6.0.0, semver@^6.1.1, semver@^6.1.2, semver@^6.2.0:
+semver@^6.0.0, semver@^6.1.2, semver@^6.2.0, semver@^6.3.0:
   version "6.3.0"
-  resolved "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
 send@0.17.1:
@@ -5782,12 +5777,10 @@ setprototypeof@1.1.1:
   resolved "https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.1.1.tgz#7e95acb24aa92f5885e0abef5ba131330d4ae683"
   integrity sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
 
-shallow-clone-shim@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/shallow-clone-shim/-/shallow-clone-shim-1.1.0.tgz#c1048ba9167f313f4f4c019ff3f0a40626322960"
-  integrity sha512-ZY+sf7fm8CDFecoL/IntHFhqu8Ll+elOcuXO5WlVgSfnpxuUMni/Y9sB9gMf85nWsVDM+CfMJpLBwiN/lOO5/w==
-  dependencies:
-    get-own-property-descriptors-polyfill "^1.0.1"
+shallow-clone-shim@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/shallow-clone-shim/-/shallow-clone-shim-2.0.0.tgz#b62bf55aed79f4c1430ea1dc4d293a193f52cf91"
+  integrity sha512-YRNymdiL3KGOoS67d73TEmk4tdPTO9GSMCoiphQsTcC9EtC+AOmMPjkyBkRoCJfW9ASsaZw1craaiw1dPN2D3Q==
 
 shebang-command@^1.2.0:
   version "1.2.0"
