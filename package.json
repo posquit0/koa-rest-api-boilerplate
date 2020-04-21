@@ -80,7 +80,7 @@
     "lint-staged": "^9.5.0",
     "nodemon": "^2.0.2",
     "pino-pretty": "^3.5.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.5",
     "supertest": "^4.0.2"
   }
 }
