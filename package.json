@@ -64,7 +64,7 @@
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
-    "pino": "^5.14.0",
+    "pino": "^6.3.1",
     "swagger-jsdoc": "^3.5.0",
     "uuid": "^3.3.3"
   },
