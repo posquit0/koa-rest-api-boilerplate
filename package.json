@@ -79,7 +79,7 @@
     "jest-junit": "^10.0.0",
     "lint-staged": "^9.5.0",
     "nodemon": "^2.0.2",
-    "pino-pretty": "^3.5.0",
+    "pino-pretty": "^4.0.0",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2"
   }
