@@ -7,6 +7,10 @@ module.exports = {
   setupFilesAfterEnv: [
     'jest-extended'
   ],
+  reporters: [
+    'default',
+    'jest-junit',
+  ],
   collectCoverageFrom: [
     'app/**/*.{js,jsx}',
     '!**/node_modules/**'
