@@ -9,7 +9,7 @@
 #
 
 ### BASE
-FROM node:10.16.0-alpine AS base
+FROM node:14.16.1-alpine AS base
 LABEL maintainer "Byungjin Park <posquit0.bj@gmail.com>"
 RUN \
   # Add our own user and group to avoid permission problems
