@@ -64,7 +64,7 @@
     "got": "^9.6.0",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
-    "koa-router": "^7.4.0",
+    "koa-router": "^11.0.2",
     "pino": "^6.11.3",
     "swagger-jsdoc": "6",
     "uuid": "3.4.0"
