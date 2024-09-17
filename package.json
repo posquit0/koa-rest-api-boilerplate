@@ -60,13 +60,13 @@
     "@kasa/koa-request-id": "^2.0.1",
     "@koa/cors": "^3.1.0",
     "dotenv": "^8.2.0",
-    "elastic-apm-node": "^3.14.0",
-    "got": "^9.6.0",
+    "elastic-apm-node": "^3.49.0",
+    "got": "^12.6.0",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
-    "koa-router": "^7.4.0",
+    "koa-router": "^13.0.1",
     "pino": "^6.11.3",
-    "swagger-jsdoc": "6",
+    "swagger-jsdoc": "6.2.6",
     "uuid": "3.4.0"
   },
   "devDependencies": {
