@@ -62,7 +62,7 @@
     "dotenv": "^8.2.0",
     "elastic-apm-node": "^3.14.0",
     "got": "^9.6.0",
-    "koa": "^2.13.1",
+    "koa": "^3.0.1",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^7.4.0",
     "pino": "^6.11.3",
